@@ -7,10 +7,27 @@
             box-sizing: border-box;
         }
 
+        #myH1 {
+            background-color: lightblue;
+            text-align: center;
+            height: 100px;
+            margin-top: 10px;
+            padding-top: 30px;
+        }
+
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
             margin: auto;
+            margin-top : 30px;
+        }
+
+        #mySelect {
+            position: relative;
+            left: 30%;
+            width: 40%;
+            /* background-color: lightgreen; */
+            margin-top: 10px;
         }
 
         td,
@@ -85,7 +102,15 @@
 
 <body>
 
-    <h2>HTML Table</h2>
+    <h1 id="myH1">MENU</h1>
+
+    <!-- 內用 白色 預設 -->
+    <!-- 外帶 紅色 -->
+    <select name="" id="mySelect" onchange="mySelectFun();">
+        <option value="1">內用</option>
+        <option value="2">外帶</option>
+    </select>
+
 
     <table>
         <tr>
@@ -233,6 +258,18 @@
         }
 
 
+        function mySelectFun() {
+            console.log('mySelectFun');
+            mySelectValue = mySelect.value;
+            console.log('mySelectValue', mySelectValue);
+            if (mySelectValue == 1) {
+                myH1.style.backgroundColor = 'lightblue';
+            } else {
+                myH1.style.backgroundColor = 'lightpink';
+            }
+        }
+
+
         // 綁定
         // item1Price item1Count item1Total
         // item2Price item2Count item2Total
@@ -256,9 +293,9 @@
         let result = document.getElementById('result');
         let mySpan = document.getElementById('mySpan');
 
+        let myH1 = document.getElementById('myH1');
+        let mySelect = document.getElementById('mySelect');
 
-        //test
-        //test123
 
     </script>
 </body>
