@@ -198,22 +198,27 @@
             // 300以上 打八折
             // sum 原價 300
             // discount 折扣價 240
-            let discount = 0;
-            if (sum >= 300) {
-                discount = sum * 0.8;
-            } else {
-                discount = sum;
-            }
 
             let resultText = `
                 ${item1PriceValue} * ${item1CountValue} = ${item1TotalValue}
                 ${item2PriceValue} * ${item2CountValue} = ${item2TotalValue}
                 ${item3PriceValue} * ${item3CountValue} = ${item3TotalValue}
-                原價 => ${sum}
-                300以上打八折
-                優惠價 => ${discount}
+                原價 => ${sum}`;
 
+            let discount = 0;
+
+            // resultText += 'xxx'
+            // resultText = resultText + 'xxxx'
+
+            if (sum >= 300) {
+                discount = sum * 0.8;
+                resultText += `
+                300以上打八折
+                優惠價 => ${discount}            
             `;
+            } else {
+                discount = sum;
+            }
 
 
             mySpan.innerText = resultText;
