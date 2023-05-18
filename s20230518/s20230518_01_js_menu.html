@@ -92,6 +92,14 @@
             background-color: lightpink;
         }
 
+        .price {
+            font-size: 30px;
+        }
+
+        .price::before {
+            content: "$ ";
+        }
+
         /* #result{
             color: red;
             font-size: 48px;
@@ -133,8 +141,9 @@
             <td>
                 <img src="https://picsum.photos/id/237/200/200" alt="">
             </td>
-            <td>
-                <input type="number" name="" value="100" readonly id="item1Price">
+            <td class="price">
+                100
+                <input type="hidden" name="" value="100" readonly id="item1Price">
             </td>
             <td>
                 <input type="number" name="" value="0" id="item1Count" min="0" onchange="changeCount();">
@@ -148,8 +157,9 @@
             <td>
                 <img src="https://picsum.photos/id/240/200/200" alt="">
             </td>
-            <td>
-                <input type="number" name="" value="50" readonly id="item2Price">
+            <td class="price">
+                50
+                <input type="hidden" name="" value="50" readonly id="item2Price">
             </td>
             <td>
                 <input type="number" name="" value="0" id="item2Count" onchange="changeCount();">
@@ -163,8 +173,9 @@
             <td>
                 <img src="https://picsum.photos/id/241/200/200" alt="">
             </td>
-            <td>
-                <input type="number" name="" value="60" readonly id="item3Price">
+            <td class="price">
+                60
+                <input type="hidden" name="" value="60" readonly id="item3Price">
             </td>
             <td>
                 <input type="number" name="" value="0" id="item3Count" onchange="changeCount();">
@@ -336,6 +347,13 @@
         const myH1 = document.getElementById('myH1');
         const mySelect = document.getElementById('mySelect');
         const nowSum = document.getElementById('nowSum');
+
+        // 初始動作
+        // 目前金額 changeCount()
+        changeCount();
+
+        let text = myH1.innerText;
+        console.log('text', text);
 
 
     </script>
