@@ -19,7 +19,7 @@
             font-family: arial, sans-serif;
             border-collapse: collapse;
             margin: auto;
-            margin-top : 30px;
+            margin-top: 30px;
         }
 
         #mySelect {
@@ -137,7 +137,7 @@
                 <input type="number" name="" value="100" readonly id="item1Price">
             </td>
             <td>
-                <input type="number" name="" value="0" id="item1Count">
+                <input type="number" name="" value="0" id="item1Count" min="0" onchange="changeCount();">
             </td>
             <td>
                 <input type="number" name="" value="0" id="item1Total">
@@ -152,7 +152,7 @@
                 <input type="number" name="" value="50" readonly id="item2Price">
             </td>
             <td>
-                <input type="number" name="" value="0" id="item2Count">
+                <input type="number" name="" value="0" id="item2Count" onchange="changeCount();">
             </td>
             <td>
                 <input type="number" name="" value="0" id="item2Total">
@@ -167,10 +167,15 @@
                 <input type="number" name="" value="60" readonly id="item3Price">
             </td>
             <td>
-                <input type="number" name="" value="0" id="item3Count">
+                <input type="number" name="" value="0" id="item3Count" onchange="changeCount();">
             </td>
             <td>
                 <input type="number" name="" value="0" id="item3Total">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <p>目前金額 : <span id="nowSum"></span></p>
             </td>
         </tr>
         <tr>
@@ -196,6 +201,33 @@
         // 1.input
         // 2.計算
         // 3.output
+
+        // 當我的count改變時 如果value < 0 顯示0
+        function changeCount() {
+            let item1PriceValue = Number(item1Price.value);
+            let item1CountValue = Number(item1Count.value);
+            let item1TotalValue = item1PriceValue * item1CountValue;
+            item1Total.value = item1TotalValue;
+
+            let item2PriceValue = Number(item2Price.value);
+            let item2CountValue = Number(item2Count.value);
+            let item2TotalValue = item2PriceValue * item2CountValue;
+            item2Total.value = item2TotalValue;
+
+            let item3PriceValue = Number(item3Price.value);
+            let item3CountValue = Number(item3Count.value);
+            let item3TotalValue = item3PriceValue * item3CountValue;
+            item3Total.value = item3TotalValue;
+
+            let nowSumValue = item1TotalValue + item2TotalValue + item3TotalValue;
+            nowSum.innerText = nowSumValue;
+
+
+            // if (item1CountValue < 0) {
+            //     item1Count.value = 0;
+            // }
+
+        }
 
         // function
         function myBtnFun() {
@@ -285,24 +317,25 @@
         // myBtn
         // result
         const item1Price = document.getElementById('item1Price');
-        let item1Count = document.getElementById('item1Count');
-        let item1Total = document.getElementById('item1Total');
+        const item1Count = document.getElementById('item1Count');
+        const item1Total = document.getElementById('item1Total');
 
-        let item2Price = document.getElementById('item2Price');D
-        let item2Count = document.getElementById('item2Count');
-        let item2Total = document.getElementById('item2Total');
+        const item2Price = document.getElementById('item2Price');
+        const item2Count = document.getElementById('item2Count');
+        const item2Total = document.getElementById('item2Total');
 
-        let item3Price = document.getElementById('item3Price');
-        let item3Count = document.getElementById('item3Count');
-        let item3Total = document.getElementById('item3Total');
+        const item3Price = document.getElementById('item3Price');
+        const item3Count = document.getElementById('item3Count');
+        const item3Total = document.getElementById('item3Total');
 
-        let myBtn = document.getElementById('myBtn');
-        let closeBtn = document.getElementById('closeBtn');
-        let result = document.getElementById('result');
-        let mySpan = document.getElementById('mySpan');
+        const myBtn = document.getElementById('myBtn');
+        const closeBtn = document.getElementById('closeBtn');
+        const result = document.getElementById('result');
+        const mySpan = document.getElementById('mySpan');
 
-        let myH1 = document.getElementById('myH1');
-        let mySelect = document.getElementById('mySelect');
+        const myH1 = document.getElementById('myH1');
+        const mySelect = document.getElementById('mySelect');
+        const nowSum = document.getElementById('nowSum');
 
 
     </script>
