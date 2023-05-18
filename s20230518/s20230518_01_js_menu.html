@@ -96,7 +96,8 @@
             font-size: 30px;
         }
 
-        .price::before {
+        .price::before,
+        #nowSum::before {
             content: "$ ";
         }
 
@@ -148,8 +149,9 @@
             <td>
                 <input type="number" name="" value="0" id="item1Count" min="0" onchange="changeCount();">
             </td>
-            <td>
-                <input type="number" name="" value="0" id="item1Total">
+            <td class="price">
+                <span id="item1TotalSpan"></span>
+                <input type="hidden" name="" value="0" id="item1Total">
             </td>
         </tr>
         <tr>
@@ -164,8 +166,9 @@
             <td>
                 <input type="number" name="" value="0" id="item2Count" onchange="changeCount();">
             </td>
-            <td>
-                <input type="number" name="" value="0" id="item2Total">
+            <td class="price">
+                <span id="item2TotalSpan"></span>
+                <input type="hidden" name="" value="0" id="item2Total">
             </td>
         </tr>
         <tr>
@@ -180,8 +183,9 @@
             <td>
                 <input type="number" name="" value="0" id="item3Count" onchange="changeCount();">
             </td>
-            <td>
-                <input type="number" name="" value="0" id="item3Total">
+            <td class="price">
+                <span id="item3TotalSpan"></span>
+                <input type="hidden" name="" value="0" id="item3Total">
             </td>
         </tr>
         <tr>
@@ -219,16 +223,19 @@
             let item1CountValue = Number(item1Count.value);
             let item1TotalValue = item1PriceValue * item1CountValue;
             item1Total.value = item1TotalValue;
+            item1TotalSpan.innerText = item1TotalValue;
 
             let item2PriceValue = Number(item2Price.value);
             let item2CountValue = Number(item2Count.value);
             let item2TotalValue = item2PriceValue * item2CountValue;
             item2Total.value = item2TotalValue;
+            item2TotalSpan.innerText = item2TotalValue;
 
             let item3PriceValue = Number(item3Price.value);
             let item3CountValue = Number(item3Count.value);
             let item3TotalValue = item3PriceValue * item3CountValue;
             item3Total.value = item3TotalValue;
+            item3TotalSpan.innerText = item3TotalValue;
 
             let nowSumValue = item1TotalValue + item2TotalValue + item3TotalValue;
             nowSum.innerText = nowSumValue;
@@ -347,6 +354,10 @@
         const myH1 = document.getElementById('myH1');
         const mySelect = document.getElementById('mySelect');
         const nowSum = document.getElementById('nowSum');
+
+        const item1TotalSpan = document.getElementById('item1TotalSpan');
+        const item2TotalSpan = document.getElementById('item2TotalSpan');
+        const item3TotalSpan = document.getElementById('item3TotalSpan');
 
         // 初始動作
         // 目前金額 changeCount()
