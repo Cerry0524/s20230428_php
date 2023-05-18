@@ -37,6 +37,7 @@
 
     </div>
 
+
     <!-- onclick -->
     <script>
         function changeColor() {
@@ -47,21 +48,26 @@
             console.log(box);
 
             // lightpink or lightcolor
+
+
             let getColor = box.getAttribute('data-color');
             console.log(getColor);
             switch (getColor) {
                 case 'lightblue':
                     box.setAttribute('class', 'box lightpink w-100');
                     box.setAttribute('data-color', 'lightpink');
+                    // buy .....
                     break;
                 case 'lightpink':
                     box.setAttribute('class', 'box lightblue');
                     box.setAttribute('data-color', 'lightblue');
+                    // logout .....
                     break;
 
                 default:
                     break;
             }
+
 
 
             // tag
