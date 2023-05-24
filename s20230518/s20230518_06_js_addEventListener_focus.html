@@ -25,33 +25,40 @@
         const inputAll = document.querySelectorAll('input');
 
         //inputAll
-        inputAll.forEach((element) => {
-            element.addEventListener('focus', function () {
-                console.log('focus ok');
-                console.log(this);
-                this.style.backgroundColor = "lightpink";
-            });
+        // inputAll.forEach((element) => {
+        //     element.addEventListener('focus', function () {
+        //         console.log('focus ok');
+        //         console.log(this);
+        //         this.style.backgroundColor = "lightpink";
+        //     });
 
-            element.addEventListener('focusout', function () {
-                console.log('focus ok');
-                console.log(this);
-                this.style.backgroundColor = "";
-            });
-        });
+        //     element.addEventListener('focusout', function () {
+        //         console.log('focus ok');
+        //         console.log(this);
+        //         this.style.backgroundColor = "";
+        //     });
+        // });
 
 
         // id
+        name.addEventListener('focus',() => {
+            console.log('focus ok');
+            console.log(this);
+            this.style.backgroundColor = "red";
+        })
+
+
         // name.addEventListener('focus',function(){
         //     console.log('focus ok');
         //     console.log(this);
         //     this.style.backgroundColor = "red";
         // })
 
-        // name.addEventListener('focusout',function(){
-        //     console.log('focus ok');
-        //     console.log(this);
-        //     this.style.backgroundColor = "";
-        // })
+        name.addEventListener('focusout',function(){
+            console.log('focus ok');
+            console.log(this);
+            this.style.backgroundColor = "";
+        })
 
     </script>
 </body>
