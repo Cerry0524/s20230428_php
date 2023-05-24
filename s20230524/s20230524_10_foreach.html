@@ -1,21 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .box {
+            width: 30%;
+            height: 300px;
+            background-color: lightblue;
+        }
+    </style>
 </head>
+
 <body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+
     <script>
+
+        // 綁定　class -> querySelectorAll -> array.foreach(function(value,key))
+        const box = document.querySelectorAll('.box');
+        // const box = document.querySelector('.box');
+        console.log(box);
+
+        box.forEach(function (value, key) {
+            // .class  nodelist
+            console.log('value', value);
+            console.log('key', key);
+            value.style.backgroundColor = 'red';
+            value.addEventListener('click', function () {
+                console.log(`hello key${key}`);
+            });
+        });
+
+
+
         // js array
         let myArr = ['amy', 'bob', 'cat'];
-
-        myArr.forEach(function(value,key){
-            console.log('value',value);
-            console.log('key',key);
+        console.log('Array.isArray(myArr) => ', Array.isArray(myArr));
+        myArr.forEach(function (value, key) {
+            console.log('value', value);
+            console.log('key', key);
         });
-        
+
     </script>
 </body>
+
 </html>
