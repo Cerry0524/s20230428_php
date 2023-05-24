@@ -11,9 +11,16 @@
 <body>
     <h1 id="myH1">A heading</h1>
     <a href="www.google.com">Link Text</a>
+    <button type="button" onclick="myBtnFun()">myBtn</button>
 
     <script>
-        const myH1 = window.document.getElementById('myH1');
+        function myBtnFun() {
+            // window.open();
+            window.close();
+        }
+
+
+        const myH1 = document.getElementById('myH1');
         console.log('myH1', myH1);
         let myH1Text = myH1.innerText;
         console.log('myH1Text', myH1Text);
@@ -23,6 +30,7 @@
         let myHeight = window.innerHeight;
         console.log('myWidth', myWidth);
         console.log('myHeight', myHeight);
+
 
 
         // window.alert('hello');
