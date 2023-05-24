@@ -13,10 +13,19 @@
     <a href="www.google.com">Link Text</a>
 
     <script>
-        const myH1 = document.getElementById('myH1');
+        const myH1 = window.document.getElementById('myH1');
         console.log('myH1', myH1);
         let myH1Text = myH1.innerText;
         console.log('myH1Text', myH1Text);
+
+        console.log('window', window);
+        let myWidth = window.innerWidth;
+        let myHeight = window.innerHeight;
+        console.log('myWidth', myWidth);
+        console.log('myHeight', myHeight);
+
+
+        // window.alert('hello');
     </script>
 
 </body>
