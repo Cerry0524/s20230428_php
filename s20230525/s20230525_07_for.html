@@ -37,20 +37,45 @@
         // 練習三 <100 總共的營業額是多少
         // 練習四 第一筆300 index 多少 ....break
 
-        let sum = 0;
-        myArr.forEach(function (value, key) {
-            sum = sum + value;
-            return false; //continue;
-            console.log('key',key);
-            console.log('value',value);
-        });
-        console.log('sum', sum);
-
+        // for
+        // 練習一
         let sumFor = 0;
         for (let i = 0; i < myArr.length; i++) {
+
             sumFor = sumFor + myArr[i];
         }
         console.log('sumFor', sumFor);
+
+        // 練習二
+        let sum100 = 0;
+        for (let i = 0; i < myArr.length; i++) {
+            if (myArr[i] >= 100) {
+                sum100 = sum100 + myArr[i];
+            }
+        }
+        console.log('sum100', sum100);
+
+        // 練習三
+        let sum99 = 0;
+        for (let i = 0; i < myArr.length; i++) {
+            if (myArr[i] < 100) {
+                sum99 = sum99 + myArr[i];
+            }
+        }
+        console.log('sum99', sum99);
+
+        // 練習四
+        // 300 first index ?
+        for (let i = 0; i < myArr.length; i++) {
+            if (myArr[i] == 300) {
+                console.log(`first value=300 key is => ${i}`);
+                // 有加break只會顯示第一筆
+                break; 
+            }
+        }
+
+
+
 
     </script>
 </body>
