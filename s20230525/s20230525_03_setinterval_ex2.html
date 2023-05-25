@@ -17,13 +17,19 @@
     <script>
         // function
         let myInterVal;
+        let isStartFlag = false;
         function start() {
+            if (isStartFlag == false) {
+                return false;
+            }
+
             myInterVal = setInterval(function () {
                 time = time + 1;
                 result.innerText = time;
 
                 // console.log('myInterval ok');
             }, 1000);
+            isStartFlag = true;
         }
 
 
@@ -48,6 +54,7 @@
         stopBtn.addEventListener('click', function () {
             console.log('stopBtn ok');
             clearInterval(myInterVal);
+            isStartFlag = false;
         })
 
     </script>
