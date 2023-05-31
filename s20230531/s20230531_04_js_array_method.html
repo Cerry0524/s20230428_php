@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // js method
+        let myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let newArr = [];
+        // newArr.push(100)
+        // js newArr 加資料....
+
+        let sum = 0;
+        myArr.forEach(function (value, key) {
+            console.log(`${key} => ${value}`);
+            if (value > 5) {
+                newArr.push(value * 3);
+            } else {
+                newArr.push(value * 2);
+            }
+            // sum += value;
+        });
+        // console.log('sum', sum);
+        console.log('newArr', newArr);
+
+        // 練習一
+        // myArr 資料 *2 存到 新的newArr
+
+        // 練習二
+        // myArr * 2 (if before value > 5  => *3)
+
+        // array methodF
+        // map
+        let mapArr = myArr.map(function (value, key) {
+            if (value > 5) {
+                return value * 3;
+            } else {
+                return value * 2;
+            }
+        });
+        console.log('mapArr', mapArr);
+
+        // 發獎金 如果底薪 <= 4萬 獎金底薪*2
+        // 如果底薪 > 四萬 獎金 1萬
+        let myCompany = [6,4,2,1,5,10,7,3,6];
+        
+
+    </script>
+</body>
+
+</html>
