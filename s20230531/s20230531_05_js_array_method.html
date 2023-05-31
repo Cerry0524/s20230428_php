@@ -43,6 +43,25 @@
         });
         console.log('studentArr egg =>', studentArr.indexOf('egg'));
 
+
+
+        //sum
+        let numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        sum = 0;
+        numArr.forEach(function (value, key) {
+            sum += value;
+        });
+        console.log('sum', sum);
+
+        // reduce
+        // total 到下一回合的累加
+        // currentValue 我現在的value
+        // reuduce(function, 初始total)        
+        let getSum = numArr.reduce(function (total, value, key) {
+            console.log('total', total);
+            console.log('value', value);
+            return total + value;
+        }, 500);
     </script>
 </body>
 
