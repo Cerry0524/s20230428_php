@@ -69,7 +69,6 @@
         // object 不能用 array.foreach
         // 用for in 抓object key / for of 抓object value        
         for (const key in myObj) {
-            const element = myObj[key];
             console.log(`${key} => ${myObj[key]}`);
             myString += `
             <tr>
@@ -78,6 +77,7 @@
              </tr>  
             `;
         }
+        
 
 
         // foreach js => array method
