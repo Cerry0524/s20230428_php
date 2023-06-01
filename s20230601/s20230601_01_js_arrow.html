@@ -28,10 +28,22 @@
             console.log('myBtn ok');
         })
 
-        array.forEach(element => {
-            
+        // array.forEach(element => {
+
+        // });
+        // good();
+
+        // arrow function
+        // return
+        let myArr = [1, 2, 3, 4, 5];
+        let mapArr = myArr.map(function (value, key) {
+            return value * 2;
         });
-        good();
+
+        let mapArrowArr = myArr.map((value, key) => (value * 2));
+
+        console.log('mapArrrowArr', mapArrowArr);
+
     </script>
 </body>
 
