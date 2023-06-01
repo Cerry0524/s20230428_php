@@ -14,12 +14,16 @@
         <li>bob</li>
         <li>cat</li>
     </ul>
-    <button type="button" id="myBtn">myBtn</button>
+    <button type="button" id="addBtn">addBtn</button>
+    <br>
+    <button type="button" id="delBtn">delBtn</button>
+
     <script>
         const myUl = document.getElementById('myUl');
-        const myBtn = document.getElementById('myBtn');
+        const addBtn = document.getElementById('addBtn');
+        const delBtn = document.getElementById('delBtn');
 
-        myBtn.addEventListener('click', function () {
+        addBtn.addEventListener('click', function () {
             // 1.建立 element <li></li>
             let li = document.createElement('li');
             // 2.建立 textNode text
@@ -31,6 +35,11 @@
             myUl.appendChild(li);
             console.log('li', li);
             console.log('myUl', myUl);
+        })
+
+        delBtn.addEventListener('click', function () {
+            console.log('delBtn ok');
+            myUl.removeChild(myUl.lastElementChild);
         })
     </script>
 </body>
