@@ -26,6 +26,9 @@
         addBtn.addEventListener('click', function () {
             // 1.建立 element <li></li>
             let li = document.createElement('li');
+            li.style.color = 'red';
+            li.setAttribute('class','test');
+            li.setAttribute('data-test','hello');
             // 2.建立 textNode text
             let textNode = document.createTextNode('test');
             // 3.element 放入 textNode <li>text</li>
@@ -41,6 +44,8 @@
             console.log('delBtn ok');
             myUl.removeChild(myUl.lastElementChild);
         })
+
+        
     </script>
 </body>
 
