@@ -13,11 +13,14 @@
 
   <div class="container mt-3">
     <h2>Alerts</h2>
+    <?php 
+      $message = '新增成功';
+    ?>
 
-    <?php if (!empty($error)) : ?>
+    <?php if (!empty($message)) : ?>
       <div class="alert alert-success alert-dismissible">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        <strong>Success!</strong> This alert box could indicate a successful or positive action.
+        <strong>Success!</strong> <?= $message;?>
       </div>
     <?php endif; ?>
 
