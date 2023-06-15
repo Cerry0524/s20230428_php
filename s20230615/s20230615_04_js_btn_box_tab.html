@@ -11,7 +11,8 @@
         .box {
             display: none;
         }
-        button{
+
+        button {
             display: block;
         }
     </style>
@@ -21,18 +22,18 @@
 <body>
     <div class="container">
         <button type="button" class="myBtn">myBtn</button>
-        
+
         <div class="box">
             111 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, beatae.
         </div>
 
         <button type="button" class="myBtn">myBtn</button>
-        
+
         <div class="box">
             222 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, beatae.
         </div>
 
-        <button type="button" class="myBtn">myBtn</button>        
+        <button type="button" class="myBtn">myBtn</button>
         <div class="box">
             333 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, beatae.
         </div>
@@ -51,7 +52,8 @@
 
             element.addEventListener('click', function () {
                 console.log('this', this);
-                // console.log('this.next', this.nextElementSibling);
+                console.log('this.nextSibling', this.nextSibling);
+                console.log('this.nextElementSibling', this.nextElementSibling);
                 allBox.forEach(boxElement => {
                     boxElement.style.display = 'none';
                 });
