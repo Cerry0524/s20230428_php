@@ -25,13 +25,29 @@
         #box3 {
             background-color: lightblue;
         }
+        /* .sticky-self{
+            position: sticky;
+            top:0;
+        } */
+        /* .test-container{
+            height: 2000px;
+        } */
     </style>
 
 </head>
 
 <body>
+    <!-- <br>
+    <br>
+    <br>
+    <br>
+    <div class="test-container">
+
+        test12345
+    </div> -->
     <!-- bg-dark navbar-dark 黑底白字 -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark navbar-dark fixed-top">
+    <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark navbar-dark sticky-bottom"> -->
         <div class="container-fluid">
             <!-- 品牌名稱 -->
             <a class="navbar-brand" href="#">PHP</a>
@@ -49,7 +65,7 @@
                         <a class="nav-link active" aria-current="page" href="#box1" data-pagename='home'>Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#box2" data-pagename='feature'>Features</a>
+                        <a class="nav-link" href="#fix-2" data-pagename='feature'>Features</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#box3" data-pagename='price'>Pricing</a>
@@ -61,7 +77,6 @@
             </div>
         </div>
     </nav>
-
     <div class="container-fluid mt-5">
         <div class="box" id="box1">
             <p id="myP"></p>
@@ -69,6 +84,8 @@
         </div>
     </div>
 
+    <div id="fix-2"></div>
+    <br>
     <div class="container-fluid mt-5">
         <div class="box" id="box2">
             box2
