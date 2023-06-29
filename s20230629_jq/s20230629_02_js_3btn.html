@@ -41,13 +41,13 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-4 col-bg">
-                <div class="box mx-auto bg-dark" id="box1"></div>
+                <div class="box mx-auto bg-dark" id="box1" data-num="10"></div>
             </div>
             <div class="col-4 col-bg">
-                <div class="box mx-auto bg-dark" id="box2"></div>
+                <div class="box mx-auto bg-dark" id="box2" data-num="20"></div>
             </div>
             <div class="col-4 col-bg">
-                <div class="box mx-auto bg-dark" id="box3"></div>
+                <div class="box mx-auto bg-dark" id="box3" data-num="30"></div>
             </div>
         </div>
     </div>
@@ -81,8 +81,27 @@
 
                 console.log('data', data);
                 const now = document.querySelector(data);
+
                 console.log('now', now);
-                now.setAttribute('class', `box mx-auto ${dataColor}`);
+                console.log('this', this);
+                console.log('element', element);
+
+                // 練習一 換顏色
+                // 方法一
+                if (now.classList.contains('bg-dark')) {
+                    now.setAttribute('class', `box mx-auto ${dataColor}`);
+                } else {
+                    now.setAttribute('class', `box mx-auto bg-dark`);
+                }
+
+                // 方法二
+                // box 增加data-now-color
+
+                // 練習二 計數器 btn data-num 庫存 
+                // 按一次btn 減少一次
+                // 最低 0
+
+
             });
 
 
