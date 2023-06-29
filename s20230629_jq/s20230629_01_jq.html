@@ -9,7 +9,14 @@
         .box {
             width: 300px;
             height: 300px;
+        }
+
+        .blue {
             background-color: lightblue;
+        }
+
+        .red {
+            background-color: red;
         }
     </style>
 </head>
@@ -21,7 +28,7 @@
     <hr>
     <br>
 
-    <div class="box" id="myBox">
+    <div class="box blue" id="myBox">
 
     </div>
 
@@ -44,6 +51,12 @@
             console.log('btnData', btnData);
             console.log('btnS55688', btnS55688);
 
+            // bs
+            // btn 抓 attribute data-bs-target
+            // div id ....
+            let target = document.querySelector(btnData);
+            console.log('target', target);
+            target.setAttribute('class', 'box red');
         });
 
     </script>
