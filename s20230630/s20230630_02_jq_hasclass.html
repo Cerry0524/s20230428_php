@@ -14,10 +14,12 @@
             background-color: lightblue;
             margin-top: 50px;
         }
-        .red{
+
+        .red {
             background-color: red;
         }
-        .green{
+
+        .green {
             background-color: green;
         }
     </style>
@@ -25,8 +27,8 @@
 </head>
 
 <body>
-    <div class="box box1 red"></div>
-    <div class="box box2 red"></div>
+    <div class="box box1 red" data-self="hello box1" data-test="test box1"></div>
+    <div class="box box2 red" data-self="hello box2" data-test="text box2"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
@@ -44,9 +46,17 @@
             console.log('resultBox2', resultBox2);
 
             //
-            $('.box').click(function(){
+            $('.box').click(function () {
                 $(this).removeClass('red');
                 $(this).addClass('green');
+                let data = $(this).data();
+                console.log('data', data);
+
+                let dataSelf = $(this).data('self');
+                console.log('dataSelf', dataSelf);
+
+                let dataTest = $(this).data('test');
+                console.log('dataTest', dataTest);
             });
 
         });
