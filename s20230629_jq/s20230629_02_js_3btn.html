@@ -68,7 +68,14 @@
         // console.log('btns', btns);
 
         // 2. btns foreach => event事件
-        btns.forEach(element => {
+        // btns.forEach(element => {
+        btns.forEach(function(value,index,arr) {
+            console.log('value',value);
+            console.log('index',index);
+            console.log('arr',arr);
+            console.log('btns',btns);
+
+            let element = value;
 
             element.innerText = element.getAttribute('data-num');
 

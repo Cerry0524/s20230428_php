@@ -42,7 +42,7 @@
 
         // JQUERY 放在ready內
         $(document).ready(function () {
-            
+
             const myBtn = $('#myBtn');
             const myBox = $('#myBox');
             const myH1 = $('#myH1');
@@ -51,11 +51,12 @@
             // console.log('myBox', myBox);
 
             myBtn.click(function (e) {
-                // e.preventDefault();
+                // console.log('e', e);
+                //  e.preventDefault();
                 myBox.attr('class', 'box red');
                 myH1.text('55688');
             });
-           
+
         });
     </script>
 
