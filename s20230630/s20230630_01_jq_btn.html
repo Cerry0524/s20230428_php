@@ -60,6 +60,11 @@
             pic3: "30"
         }
 
+        let dataObj = {
+            img: ['28', '29', '30']
+        }
+        console.log('dataObj.img', dataObj.img);
+
         // console.log('data', data);
         // console.log('data.pic1', data.pic1);
         // console.log('data.pic2', data['pic2']);
@@ -95,10 +100,15 @@
             // 練習二 抓obj
             $.each(btns, function (indexInArray, valueOfElement) {
                 $(btns).click(function (e) {
-                    let dataPic = $(this).attr('data-pic');
-                    console.log('dataPic', dataPic);
-                    console.log(`https://picsum.photos/id/${data[dataPic]}/800/500`);
-                    myImg.attr('src', `https://picsum.photos/id/${data[dataPic]}/800/500`)
+
+                    // 方法2-1 data-set vs data
+                    // let dataPic = $(this).attr('data-pic');
+                    // console.log('dataPic', dataPic);
+                    // console.log(`https://picsum.photos/id/${data[dataPic]}/800/500`);
+                    // myImg.attr('src', `https://picsum.photos/id/${data[dataPic]}/800/500`)
+
+                    // 方法2-2 dataObj vs indexInArray
+                    myImg.attr('src', `https://picsum.photos/id/${data.img[indexInArray]}/800/500`)
                 });
             });
 
