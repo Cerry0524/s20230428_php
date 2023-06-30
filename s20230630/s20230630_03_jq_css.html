@@ -29,6 +29,8 @@
 <body>
     <div class="box box1 red" data-self="hello box1" data-test="test box1"></div>
     <div class="box box2 red" data-self="hello box2" data-test="text box2"></div>
+    <br>
+    <input type="text" name="" id="myInput" value="55688">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
@@ -48,8 +50,18 @@
             //
             $('.box').click(function () {
                 $(this).css('background-color', 'lightpink');
+                // set
+                $('#myInput').val('123456');                
             });
 
+            // get
+            let value = $('#myInput').val();
+            console.log('value', value,);
+
+            // 原生js property
+            // document.getElementById("myText").value = "Johnny Bravo";
+
+            
         });
     </script>
 </body>
