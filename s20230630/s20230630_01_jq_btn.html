@@ -18,7 +18,6 @@
             height: 100px;
             font-size: 30px;
         }
-        
     </style>
 
 </head>
@@ -28,7 +27,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="box bg-dark text-center pt-5">
-                    <img src="https://picsum.photos/id/30/800/500" alt="">
+                    <img id="myImg" src="https://picsum.photos/id/30/800/500" alt="">
                 </div>
             </div>
         </div>
@@ -36,13 +35,13 @@
     <div class="container mt-5">
         <div class="row text-center">
             <div class="col-4">
-                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-primary" data-pic="28">Primary</button>
             </div>
             <div class="col-4">
-                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-success" data-pic="29">Success</button>
             </div>
             <div class="col-4">
-                <button type="button" class="btn btn-danger">Danger</button></col-4>
+                <button type="button" class="btn btn-danger" data-pic="30">Danger</button></col-4>
             </div>
 
         </div>
@@ -57,7 +56,17 @@
     <script>
         // JQUERY 放在ready內
         $(document).ready(function () {
-
+            const btns = $('.btn');
+            const myImg = $('#myImg');
+            // console.log('btns', btns);
+            $.each(btns, function (indexInArray, valueOfElement) {
+                // console.log('valueOfElement', valueOfElement);
+                let dataPic = $(valueOfElement).attr('data-pic');
+                // console.log('dataPic', dataPic);
+                $(valueOfElement).click(function (e) {
+                    myImg.attr('src', `https://picsum.photos/id/${dataPic}/800/500`)
+                });
+            });
 
 
         });
