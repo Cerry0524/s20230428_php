@@ -137,24 +137,68 @@
                 // console.log('valueOfElement', valueOfElement);
                 $(valueOfElement).click(function () {
                     // console.log('this', this);
-                    let numValue = $(this).val();
-                    console.log('numValue', numValue);
+
+
 
                     // jquery method parent() 找上一層 推薦使用
                     // jquery method parents() 找上面全部 少用
                     // jquery method parentsUntil('tr') 找tr以下全部 更少用
                     // jquery method find('.menu-price') 往下找menu-price class
-                    console.log('parent', $(this).parent());
-                    console.log('parent.parent', $(this).parent().parent());
-                    console.log('parent.parent.parent', $(this).parent().parent().parent());
-                    console.log('parent.parent.parent.find-price', $(this).parent().parent().parent().find('.menu-price'));
-                    console.log('parent.parent.parent.find-total', $(this).parent().parent().parent().find('.menu-total'));
-                    console.log('parentsUntil(tr)', $(this).parentsUntil('tr'));
-                    console.log('parentsUntil(tr).parent', $(this).parentsUntil('tr').parent());
-                    console.log('parentsUntil(tbody)', $(this).parentsUntil('tbody'));
+                    // console.log('parent', $(this).parent());
+                    // console.log('parent.parent', $(this).parent().parent());
+                    // console.log('parent.parent.parent', $(this).parent().parent().parent());
+                    // console.log('parent.parent.parent.find-price', $(this).parent().parent().parent().find('.menu-price'));
+                    // console.log('parent.parent.parent.find-total', $(this).parent().parent().parent().find('.menu-total'));
+                    // console.log('parentsUntil(tr)', $(this).parentsUntil('tr'));
+                    // console.log('parentsUntil(tr).parent', $(this).parentsUntil('tr').parent());
+                    // console.log('parentsUntil(tbody)', $(this).parentsUntil('tbody'));
+
+
+                    // 1-1 單行小計
+                    // 抓到num
+                    // 抓到price => get 
+                    // num * price 
+                    // 存到total => set
+
+                    // 1-1 單行小計
+                    // 抓到num
+                    let numValue = Number($(this).val());
+                    console.log('numValue', numValue);
+                    // 抓到price
+                    // 先到tr 再到price
+                    let trNow = $(this).parent().parent().parent();
+                    let priceNow = trNow.find('.menu-price');
+                    let priceValue = Number(priceNow.val());
+                    // num * price 
+                    let totalValue = priceValue * numValue;
+                    console.log('totalValue', totalValue);
+                    // 存到total => set
+                    let totalNow = trNow.find('.menu-total');
+                    console.log('totalNow', totalNow);
+                    totalNow.val(totalValue); // set
+
+
+                    // let priceValueSet = priceNow.val(100); error
+                    // get 取得資料 priceNow.val();
+                    // set 設定資料 priceNow.val('500');
+                    // console.log('priceValue', priceValue);
+
+
+
+
+                    // console.log('trNow', trNow);
+                    // console.log('priceNow', priceNow);
+                    // console.log('priceValue', priceValue);
+                    // num * price
+                    // 存到total
+
+
 
                     // 上一層的tag
                     // 
+
+                    // 1.調整num 全部total 加總
+                    // 2.總共多少btn 全部total 超過300打八折
 
                 });
 
