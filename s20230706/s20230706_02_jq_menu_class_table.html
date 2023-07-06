@@ -131,6 +131,34 @@
             console.log('myPrice', myPrice);
             console.log('myNum', myNum);
             console.log('myTotal', myTotal);
+            // 方法一
+            $.each(myNum, function (indexInArray, valueOfElement) {
+                // console.log('indexInArray', indexInArray);
+                // console.log('valueOfElement', valueOfElement);
+                $(valueOfElement).click(function () {
+                    // console.log('this', this);
+                    let numValue = $(this).val();
+                    console.log('numValue', numValue);
+
+                    // jquery method parent() 找上一層 推薦使用
+                    // jquery method parents() 找上面全部 少用
+                    // jquery method parentsUntil('tr') 找tr以下全部 更少用
+                    // jquery method find('.menu-price') 往下找menu-price class
+                    console.log('parent', $(this).parent());
+                    console.log('parent.parent', $(this).parent().parent());
+                    console.log('parent.parent.parent', $(this).parent().parent().parent());
+                    console.log('parent.parent.parent.find-price', $(this).parent().parent().parent().find('.menu-price'));
+                    console.log('parent.parent.parent.find-total', $(this).parent().parent().parent().find('.menu-total'));
+                    console.log('parentsUntil(tr)', $(this).parentsUntil('tr'));
+                    console.log('parentsUntil(tr).parent', $(this).parentsUntil('tr').parent());
+                    console.log('parentsUntil(tbody)', $(this).parentsUntil('tbody'));
+
+                    // 上一層的tag
+                    // 
+
+                });
+
+            });
         });
         // jquery end
     </script>
