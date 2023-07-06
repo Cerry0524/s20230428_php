@@ -16,28 +16,36 @@
         <h2>Hover Rows</h2>
         <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>
         <table class="table table-hover table-bordered border-primary">
-            <thead>
+            <thead class="text-center">
                 <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
+                    <th width="5%">品項</th>
+                    <th width="8%">圖片</th>
+                    <th width="15%">價格</th>
+                    <th width="15%">數量</th>
+                    <th>小計</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
                 <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                </tr>
-                <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
+                    <td>1</td>
+                    <td>
+                        <img src="https://picsum.photos/id/42/100/100" alt="">
+                    </td>
+                    <td>
+                        <div class="mt-4">
+                            <input type="number" class="form-control menu-price">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mt-4">
+                            <input type="number" class="form-control menu-num">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="mt-4">
+                            <input type="number" class="form-control menu-total">
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
