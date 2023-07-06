@@ -16,7 +16,7 @@
 <body>
 
     <div class="container-fluid mt-3">
-        <h2>Hover Rows</h2>
+        <h2 id="myH2">Hover Rows</h2>
         <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>
         <table class="table table-hover table-bordered border-primary">
             <thead class="text-center">
@@ -40,7 +40,7 @@
                     </td>
                     <td>
                         <div class="mt-4">
-                            <input id="myPrice" type="number" class="form-control menu-price">
+                            <input id="myPrice" type="number" class="form-control menu-price" value="100">
                         </div>
                     </td>
                     <td>
@@ -71,38 +71,55 @@
         // JQUERY 放在ready內
         $(document).ready(function () {
             // 綁定
+            const myH2 = document.getElementById('myH2');
+            console.log('myH2', myH2);
+            const myH2JqObj = $(myH2);
+            console.log('myH2JqObj', myH2JqObj);
+
+            // 形成jquery obj
+            // 1.抓select 字串 類似css.....
+            // $('#myPrivce')
+            // 2.抓element
+            // const myPrice = document.getElementById('myPrice');
+            // $(myPrice)
+
+
             const myPrice = $('#myPrice');
-            const myNum = $('#myNums');
-            const myTotal = $('#myTotals');
+            const myNum = $('#myNum');
+            const myTotal = $('#myTotal');
             console.log('myPrice', myPrice);
             console.log('myNum', myNum);
             console.log('myTotal', myTotal);
 
-            // console log 調整數字時 顯示的value
-            myPrice.change(function () {
-                console.log('change ok');
-
-                // 原生js
-                console.log('this', this);
-                // jq object
-                // this 變數 我們指定的elment
-                console.log('$("this")', $(this));
-
-                // 錯誤的
-                console.log($('this'));
-
-                // 字串 變數的問題
-                let test = 'hello test';
-                // test 變數
-                // 'hello test' 字串
-                // this 變數
-                // 'this' 字串
-
-
-
-
+            myNum.change(function () {
+                let priceValue = Number(myPrice.val());
+                let numValue = Number($(this).val());
+                myTotal.val(priceValue * numValue);
 
             });
+
+
+            // console log 調整數字時 顯示的value
+            // myPrice.change(function () {
+            //     console.log('change ok');
+
+            //     // 原生js
+            //     console.log('this', this);
+            //     // jq object
+            //     // this 變數 我們指定的elment
+            //     console.log('$("this")', $(this));
+
+            //     // 錯誤的
+            //     console.log($('this'));
+            //     console.log($('#this'));
+
+            //     // 字串 變數的問題
+            //     let test = 'hello test';
+            //     // test 變數
+            //     // 'hello test' 字串
+            //     // this 變數
+            //     // 'this' 字串
+            // });
 
 
         });
