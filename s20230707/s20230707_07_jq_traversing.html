@@ -15,7 +15,8 @@
         .red {
             color: red;
         }
-        .border-black{
+
+        .border-black {
             border: 1px solid black;
         }
     </style>
@@ -43,22 +44,40 @@
     <script>
         // JQUERY 放在ready內
         $(document).ready(function () {
+            function touchFun(value) {
+                console.log('this', this);
+                console.log('value', value);
+
+                divs.removeClass('border-warning');
+                divs.removeClass('border-danger');
+
+                $(value).addClass('border-warning')
+                $(value).parent().addClass('border-danger')
+            }
+
             const myContainer = $('.container');
             const myRow = $('.row');
             const myCol = $('.col');
             const myBox = $('.box');
+            const divs = $('div');
 
             // parent 單一一層
-            // myBox.parent().attr('class','col border border-danger m-5');
-            // myBox.parent().parent().attr('class','col border border-danger m-5');
-            // myBox.parent().parent().parent().attr('class','col border border-danger m-5');
+            // myBox.parent().addClass('border-danger');
+            // myBox.parent().parent().addClass('border-danger');
+            // myBox.parent().parent().parent().addClass('border-danger');
 
             // parents 全部
             // myBox.parents().addClass('border-danger');
 
             // parentsUntil 碰到條件 之前的全部
-            myBox.parentsUntil('.container').addClass('border-danger');
+            // myBox.parentsUntil('.container').addClass('border-danger');
             // myBox.parentsUntil('.row').addClass('border-danger');
+
+            myBox.click(function () {
+                touchFun(this);
+            })
+
+
 
 
         });
