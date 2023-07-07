@@ -35,6 +35,18 @@
                 <div class="box border m-5">
                     box
                 </div>
+                <div class="box border m-5">
+                    box
+                </div>
+                <div class="box border m-5">
+                    box
+                </div>
+                <div class="box border m-5">
+                    box
+                </div>
+                <div class="box border m-5">
+                    box
+                </div>
             </div>
         </div>
     </div>
@@ -94,10 +106,16 @@
             // myContainer.children().children().children().addClass('border-danger');
 
             // find 往內找
-            myContainer.find('.box').addClass('border-danger');
+            // myContainer.find('.box').addClass('border-danger');
             // myContainer.find('.row').addClass('border-danger');
             // myContainer.find('.col').addClass('border-danger');
-
+            
+            // myBox.eq(0).addClass('border-danger');
+            // siblings 全部的兄弟姊妹層
+            // myBox.eq(0).siblings().addClass('border-warning');
+            myBox.eq(2).addClass('border-danger');
+            myBox.eq(2).prev().addClass('border-primary');
+            myBox.eq(2).next().addClass('border-warning');
 
         });
     </script>
