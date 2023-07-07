@@ -16,8 +16,8 @@
 <body>
 
     <div class="container-fluid mt-3">
-        <h2 id="myH2">Hover Rows</h2>
-        <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>
+        <h2 id="myH2">Menu</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, dolorem!</p>
         <table class="table table-hover table-bordered border-primary">
             <thead class="text-center">
                 <tr>
@@ -112,6 +112,13 @@
                         <div class="mt-4">
                             小計:total加總 = <span id="myResult"></span>
                         </div>
+                        <div class="mt-4">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                calculate
+                            </button>
+                        </div>
                     </td>
 
                 </tr>
@@ -121,6 +128,28 @@
         </table>
     </div>
 
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    total: <span id="modalResult">12345</span>
+                    <div id="bonus" class="text-danger">
+                        666
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
@@ -143,6 +172,15 @@
                     console.log('sum', sum);
                 });
                 myResult.text(sum);
+                modalResult.text(sum);
+
+                bonus.hide();
+                if (sum > 300) {
+                    let bonusValue = sum * 0.8;
+                    bonus.text(`恭喜您 超過300 獲得 優惠八折 => ${bonusValue}`);
+                    bonus.show();
+                }
+
             }
 
 
@@ -151,6 +189,13 @@
             const myNum = $('.menu-num');
             const myTotal = $('.menu-total');
             const myResult = $('#myResult');
+            const modalResult = $('#modalResult');
+            const bonus = $('#bonus');
+
+            // 預設display none -> jquery hide()
+            bonus.hide();
+
+
 
             // myResult.text('55688');
             // 全部加總
@@ -230,6 +275,8 @@
 
                     // 1.調整num 全部total 加總
                     // 2.總共多少btn 全部total 超過300打八折
+
+                    // bs modal
 
 
                     // total -> sum
