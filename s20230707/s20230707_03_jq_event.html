@@ -59,13 +59,31 @@
             //     $(this).attr('class', 'box mt-5 blue');
             // });
 
-            // 方法二
-            $.each(boxs, function (indexInArray, valueOfElement) {
-                $(valueOfElement).mouseenter(function () {
+            // 方法二 延伸模組 jqEach tab
+            // $.each(boxs, function (indexInArray, valueOfElement) {
+            //     $(valueOfElement).mouseenter(function () {
+            //         $(this).attr('class', 'box mt-5 red');
+            //     });
+
+            //     $(valueOfElement).mouseleave(function () {
+            //         $(this).attr('class', 'box mt-5 blue');
+            //     });
+            // });
+
+            // 方法三 w3school 自己手動打
+            boxs.each(function (key, value) {
+                console.log('key', key);
+                console.log('value', value);
+
+                // $(this) 
+                // $(value)
+                // 相同
+
+                $(value).mouseenter(function () {
                     $(this).attr('class', 'box mt-5 red');
                 });
 
-                $(valueOfElement).mouseleave(function () {
+                $(value).mouseleave(function () {
                     $(this).attr('class', 'box mt-5 blue');
                 });
             });
