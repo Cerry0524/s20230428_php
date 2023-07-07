@@ -32,6 +32,9 @@
                 <div class="box border m-5">
                     box
                 </div>
+                <div class="box border m-5">
+                    box
+                </div>
             </div>
         </div>
     </div>
@@ -77,15 +80,23 @@
                 touchFun(this);
             })
 
-            myCol.click(function () {
-                touchFun(this);
-            })
+            // myCol.click(function () {
+            //     touchFun(this);
+            // })
 
-            myRow.click(function () {
-                touchFun(this);
-            })
+            // myRow.click(function () {
+            //     touchFun(this);
+            // })
 
+            // children 往內找一次
+            // myContainer.children().addClass('border-danger');
+            // myContainer.children().children().addClass('border-danger');
+            // myContainer.children().children().children().addClass('border-danger');
 
+            // find 往內找
+            myContainer.find('.box').addClass('border-danger');
+            // myContainer.find('.row').addClass('border-danger');
+            // myContainer.find('.col').addClass('border-danger');
 
 
         });
