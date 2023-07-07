@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <div class="container border  m-5 ">
+    <div class="container border m-5">
         container
         <div class="row border m-5">
             row
@@ -74,6 +74,14 @@
             // myBox.parentsUntil('.row').addClass('border-danger');
 
             myBox.click(function () {
+                touchFun(this);
+            })
+
+            myCol.click(function () {
+                touchFun(this);
+            })
+
+            myRow.click(function () {
                 touchFun(this);
             })
 
