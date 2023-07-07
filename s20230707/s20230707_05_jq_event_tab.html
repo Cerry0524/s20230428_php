@@ -62,11 +62,14 @@
 
             console.log('btns', btns);
             btns.click(function () {
+                
                 console.log('$(this)', $(this));
                 let getDataSelf = $(this).attr('data-self');
                 // let getDataSelf = $(this).data('self');
                 console.log('getDataSelf', getDataSelf);
                 boxs.hide();
+                btns.removeClass('btn-lg');
+                $(this).addClass('btn-lg');
                 $(getDataSelf).show();
 
                 // 初始值 全部關閉 或者 全部打開
