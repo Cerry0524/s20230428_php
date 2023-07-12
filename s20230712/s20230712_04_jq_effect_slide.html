@@ -73,7 +73,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 
 
@@ -90,12 +90,27 @@
 
             console.log('btns', btns);
 
-            btns.click(function () {
-                let parentCol = $(this).parent().parent();
-                let closeBox = parentCol.find('.box');
-                closeBox.slideToggle();
-                console.log('parentCol', parentCol);
-                console.log('closeBox', closeBox);
+            // 方法一 jquery 每個jq obj + click
+            // btns.click(function () {
+            //     let parentCol = $(this).parent().parent();
+            //     let closeBox = parentCol.find('.box');
+            //     closeBox.slideToggle();
+            //     console.log('parentCol', parentCol);
+            //     console.log('closeBox', closeBox);
+            // });
+
+            // 方法二 each每個btn 在每個都加上event click
+            $.each(btns, function (indexInArray, valueOfElement) {
+                // this == valueOfElement
+                // $(this).click(function () {
+                    
+                $(valueOfElement).click(function () {
+                    let parentCol = $(this).parent().parent();
+                    let closeBox = parentCol.find('.box');
+                    closeBox.slideToggle();
+                    console.log('parentCol', parentCol);
+                    console.log('closeBox', closeBox);
+                });
             });
 
 
