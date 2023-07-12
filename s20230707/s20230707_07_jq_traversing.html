@@ -88,8 +88,16 @@
             // myBox.parentsUntil('.container').addClass('border-danger');
             // myBox.parentsUntil('.row').addClass('border-danger');
 
-            myBox.click(function () {
-                touchFun(this);
+            divs.click(function () {
+                // console.log('this', this);
+                // console.log('value', value);
+                console.log('event',event);
+                divs.removeClass('border-warning');
+                divs.removeClass('border-danger');
+                
+                $(this).addClass('border-warning')
+                $(this).parent().addClass('border-danger')
+                event.stopPropagation();
             })
 
             // myCol.click(function () {
@@ -113,9 +121,9 @@
             // myBox.eq(0).addClass('border-danger');
             // siblings 全部的兄弟姊妹層
             // myBox.eq(0).siblings().addClass('border-warning');
-            myBox.eq(2).addClass('border-danger');
-            myBox.eq(2).prev().addClass('border-primary');
-            myBox.eq(2).next().addClass('border-warning');
+            // myBox.eq(2).addClass('border-danger');
+            // myBox.eq(2).prev().addClass('border-primary');
+            // myBox.eq(2).next().addClass('border-warning');
 
         });
     </script>
