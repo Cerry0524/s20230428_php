@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col">
                 <div class="d-grid gap-2">
-                    <button type="button" name="" id=""  class="btn btn-primary">Button</button>
+                    <button type="button" name="" id="" class="btn btn-primary">Button</button>
                 </div>
             </div>
         </div>
@@ -42,17 +42,20 @@
 
     <script>
         // JQUERY 放在ready內
-        
+
         $(document).ready(function () {
             const btn = $('.btn');
             const box = $('.box');
-            btn.click(function () { 
+            btn.click(function () {
                 console.log('click ok');
+                // random 1 - 100
+                let num = Math.floor(Math.random() * 100) + 1;;
+                console.log('num', num);
                 box.animate({
-                    left: '+=50px',
-                    top: '+=50px',
+                    left: `+=${num}px`,
+                    top: `+=${num}px`,
                     opacity: '0.5'
-                },1000,function(){
+                }, 1000, function () {
                     // alert('Hello');
                 });
             });
