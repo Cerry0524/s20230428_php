@@ -19,20 +19,61 @@
 
 <body>
     <div class="container mt-5">
-        <div class="row">
+        <div class="row mt-3">
             <div class="col">
                 <div class="d-grid gap-2">
-                    <button type="button" name="" id="slideBtn" class="btn btn-primary">fadeInBtn Button</button>
+                    <button type="button" name="" class="myBtn btn btn-primary">fadeInBtn Button</button>
+                </div>
+                <div class="box">
+
                 </div>
             </div>
-           
-            
-        </div>
-    </div>
-    <div class="container vh-100">
-        <div id="boxID" class="box">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="button" name="" class="myBtn btn btn-primary">fadeInBtn Button</button>
+                </div>
+                <div class="box">
 
+                </div>
+            </div>
         </div>
+        <div class="row mt-3">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="button" name="" class="myBtn btn btn-primary">fadeInBtn Button</button>
+                </div>
+                <div class="box">
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="button" name="" class="myBtn btn btn-primary">fadeInBtn Button</button>
+                </div>
+                <div class="box">
+
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="button" name="" class="myBtn btn btn-primary">fadeInBtn Button</button>
+                </div>
+                <div class="box">
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="button" name="" class="myBtn btn btn-primary">fadeInBtn Button</button>
+                </div>
+                <div class="box">
+
+                </div>
+            </div>
+        </div>
+        
     </div>
 
 
@@ -44,24 +85,20 @@
     <script>
         // JQUERY 放在ready內
         $(document).ready(function () {
-            const slideBtn = $('#slideBtn');
+            const btns = $('.myBtn');
             const box = $('#boxID');
 
-            // fadeIn 淡入 dispaly none -> display block
-            slideBtn.click(function () {
+            console.log('btns', btns);
 
-                // slideUp display block -> none
-                // box.slideUp(5000);
-
-                // slideDown diaply none -> block
-                // box.slideDown(5000);
-
-                // SlidUp + SlideDown
-                box.slideToggle(2000);
+            btns.click(function () {
+                let parentCol = $(this).parent().parent();
+                let closeBox = parentCol.find('.box');
+                closeBox.slideToggle();
+                console.log('parentCol', parentCol);
+                console.log('closeBox', closeBox);
             });
 
 
-           
         });
     </script>
 </body>
