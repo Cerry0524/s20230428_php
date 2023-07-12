@@ -49,9 +49,11 @@
             btn.click(function () { 
                 console.log('click ok');
                 box.animate({
-                    left: '250px',
-                    top: '50px',
+                    left: '+=50px',
+                    top: '+=50px',
                     opacity: '0.5'
+                },1000,function(){
+                    // alert('Hello');
                 });
             });
 
