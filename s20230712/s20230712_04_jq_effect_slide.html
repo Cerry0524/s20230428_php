@@ -83,7 +83,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        // JQUERY 放在ready內
+        // JQUERY 放在ready內        
         $(document).ready(function () {
             const btns = $('.myBtn');
             const box = $('#boxID');
@@ -103,7 +103,7 @@
             $.each(btns, function (indexInArray, valueOfElement) {
                 // this == valueOfElement
                 // $(this).click(function () {
-                    
+
                 $(valueOfElement).click(function () {
                     let parentCol = $(this).parent().parent();
                     let closeBox = parentCol.find('.box');
