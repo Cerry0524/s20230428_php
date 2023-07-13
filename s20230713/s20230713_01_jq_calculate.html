@@ -16,19 +16,19 @@
             <div class="col">
                 <div class="mb-3 mt-3">
                     <label for="num1">num1:</label>
-                    <input type="number" class="form-control" id="num1" name="num1">
+                    <input type="number" class="form-control" id="num1" name="num1" value="0">
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3 mt-3">
                     <label for="num2">num2:</label>
-                    <input type="number" class="form-control" id="num2" name="num2">
+                    <input type="number" class="form-control" id="num2" name="num2" value="0">
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3 mt-3">
                     <label for="myOption">option:</label>
-                    <input type="text" class="form-control" id="myOption" name="myOption">
+                    <input type="text" class="form-control" id="myOption" name="myOption" value="+">
                 </div>
             </div>
         </div>
@@ -53,6 +53,62 @@
         // JQUERY 放在ready內
         // 原本的方法
         $(document).ready(function () {
+            //綁定
+            const num1 = $('#num1');
+            const num2 = $('#num2');
+            const myOption = $('#myOption');
+
+            function calculate() {
+                // 抓新值
+                let num1Value = Number(num1.val());
+                let num2Value = Number(num2.val());
+                let myOptionValue = myOption.val();
+                console.log('num1Value', num1Value);
+                console.log('num2Value', num2Value);
+                console.log('myOptionValue', myOptionValue);
+                let result = 0;
+
+                switch (myOptionValue) {
+                    case '+':
+                        result = num1Value + num2Value;
+                        break;
+                    case '-':
+                        result = num1Value - num2Value;
+                        break;
+                    case '*':
+                        result = num1Value * num2Value;
+                        break;
+                    case '/':
+                        result = num1Value / num2Value;
+                        break;
+
+
+                    default:
+                        result = "option error";
+                        break;
+                }
+                console.log('result', result);
+            }
+
+
+            num1.change(function () {
+                calculate();
+                // let num1Value = num1.val();
+                // console.log('num1Value', num1Value);
+
+            });
+
+            num2.change(function () {
+                calculate();
+                // let num2Value = num2.val();
+                // console.log('num2Value', num2Value);
+            });
+
+            myOption.change(function () {
+                calculate();
+                // let myOptionValue = myOption.val();
+                // console.log('myOptionValue', myOptionValue);
+            });
 
 
 
