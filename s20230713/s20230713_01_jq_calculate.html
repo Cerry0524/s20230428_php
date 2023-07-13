@@ -35,8 +35,15 @@
         <div class="row">
             <div class="col">
                 <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="button">Button</button>
+                    <button id="myBtn" class="btn btn-primary" type="button">Button</button>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <p id="myP"></p>
             </div>
         </div>
     </div>
@@ -57,6 +64,8 @@
             const num1 = $('#num1');
             const num2 = $('#num2');
             const myOption = $('#myOption');
+            const myBtn = $('#myBtn');
+            const myP = $('#myP');
 
             function calculate() {
                 // 抓新值
@@ -88,6 +97,26 @@
                         break;
                 }
                 console.log('result', result);
+
+                let data = {
+                    'num1': num1Value,
+                    'num2': num2Value,
+                    'myOption': myOptionValue,
+                    'result': result,
+                }
+                return data;
+            }
+
+            function showResult() {
+                let resultData = calculate();
+                // console.log('resultData', resultData);
+                let resultText = `
+                ${resultData.num1} 
+                ${resultData.myOption} 
+                ${resultData.num2} = 
+                ${resultData.num1 + resultData.num2}`;
+                myP.text(resultText);
+
             }
 
 
@@ -106,6 +135,13 @@
 
             myOption.change(function () {
                 calculate();
+                // let myOptionValue = myOption.val();
+                // console.log('myOptionValue', myOptionValue);
+            });
+
+            myBtn.click(function () {
+                console.log('myBtn ok');
+                showResult();
                 // let myOptionValue = myOption.val();
                 // console.log('myOptionValue', myOptionValue);
             });
