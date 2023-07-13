@@ -24,6 +24,19 @@
                 </div>
             </div>
         </div>
+        <div class="row mt-2">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button id="appendToBtn" class="btn btn-primary" type="button">appendTo Button</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button id="prependToBtn" class="btn btn-danger" type="button">prependTo Button</button>
+                </div>
+            </div>
+        </div>
+
 
     </div>
     <div class="container" id="myContainer">
@@ -48,26 +61,45 @@
         $(function () {
             const appendBtn = $('#appendBtn');
             const prependBtn = $('#prependBtn');
+            const appendToBtn = $('#appendToBtn');
+            const prependToBtn = $('#prependToBtn');
             const myUl = $('#myUl');
             let i = 0;
-           
-            // append 往內加 放最後
 
+            // append 往內加 放最後
             // prepend 往內加 放最前
-            let appendText = '<li>appendText</li>';
-            let prependText = '<li>prependText</li>'
-           
-            appendBtn.click(function(){
+            // 沒to content 在後面
+
+            // appendTo 往內加 放最後
+            // prependTo 往內加 放最前
+            // 有to content在前
+
+            appendBtn.click(function () {
                 console.log('appendBtn ok');
                 i++;
-                myUl.append(`${appendText} => ${i}`);
-                
+                let content = `<li>appendBtn ${i}</li>`;          
+                myUl.append(content);
             })
 
-            prependBtn.click(function(){
+            prependBtn.click(function () {
                 console.log('prependBtn ok');
                 i++;
-                myUl.prepend(`${prependText} => ${i}`);
+                let content = `<li>prependBtn ${i}</li>`;          
+                myUl.prepend(content);
+            })
+
+            appendToBtn.click(function () {
+                console.log('appendToBtn ok');
+                i++;
+                let content = `<li>appendToBtn ${i}</li>`;                
+                $(content).appendTo(myUl);
+            })
+
+            prependToBtn.click(function () {
+                console.log('prependToBtn ok');
+                i++;
+                let content = `<li>prependToBtn ${i}</li>`;                
+                $(content).prependTo(myUl);
             })
 
         });
