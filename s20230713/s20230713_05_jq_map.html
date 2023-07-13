@@ -35,6 +35,20 @@
             // [2,4,6]
             console.log('newArr', newArr);
 
+            // map ?
+            // 使用each 完成同樣的結果
+            // 建立空的array
+            // 每個值*3
+            // push
+
+            let newArrEach = [];
+            $.each(myArr, function (indexInArray, valueOfElement) {
+                console.log('indexInArray', indexInArray);
+                console.log('valueOfElement', valueOfElement);
+                newArrEach.push(valueOfElement * 3);
+            });
+            console.log('newArrEach', newArrEach);
+
         });
     </script>
 </body>
