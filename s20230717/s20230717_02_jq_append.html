@@ -56,6 +56,28 @@
                 </div>
             </div>
             <div class="col">
+               
+                <label for="sugerInput" class="form-label">甜度</label>
+                <select class="form-select" id="sugerInput" name="iceInput">
+                    <option value="少糖" selected>少糖</option>
+                    <option value="正常">正常</option>
+                    <option value="半糖">半糖</option>
+                    <option value="微糖">微糖</option>
+                </select>
+            </div>
+            <div class="col">
+                <!-- <div class="mb-3">
+                    <label for="iceInput" class="form-label">冰塊</label>
+                    <input id="iceInput" type="text" class="form-control">
+                </div> -->
+                <label for="iceInput" class="form-label">冰塊</label>
+                <select class="form-select" id="iceInput" name="iceInput">
+                    <option value="少冰" selected>少冰</option>
+                    <option value="去冰">去冰</option>
+                    <option value="正常">正常</option>
+                </select>
+            </div>
+            <div class="col">
                 <div class="mb-3">
                     <label for="psInput" class="form-label">備註</label>
                     <input id="psInput" type="text" class="form-control">
@@ -92,25 +114,29 @@
             const nameInput = $('#nameInput');
             const numInput = $('#numInput');
             const psInput = $('#psInput');
+            const sugerInput = $('#sugerInput');
+            const iceInput = $('#iceInput');
             const checkBtn = $('#checkBtn');
 
             let i = 0; //click 第幾個
 
 
-             // 按鈕名稱
-             $.each(itemBtn, function (indexInArray, valueOfElement) {
+            // 按鈕名稱
+            $.each(itemBtn, function (indexInArray, valueOfElement) {
                 let stockName = $(this).attr('data-stock-name');
                 $(valueOfElement).text(`${stockName}`);
             });
 
-             // 選擇品項
-             itemBtn.click(function () {
+            // 選擇品項
+            itemBtn.click(function () {
                 // exDiv append method
                 let stockName = $(this).attr('data-stock-name');
 
                 nameInput.val(stockName);
                 numInput.val('1');
                 psInput.val('');
+                sugerInput.val('少糖');
+                iceInput.val('少冰');
 
             });
 
@@ -120,12 +146,14 @@
                 let name = nameInput.val();
                 let num = numInput.val();
                 let ps = psInput.val();
+                let suger = sugerInput.val();
+                let ice = iceInput.val();
 
-                let content = `<p class="text-primary">第${i}項 商品 ${name} ${num}杯 ${ps}</p>`;
+                let content = `<p class="text-primary">第${i}項 商品 ${name} ${num}杯 ${suger} ${ice} ${ps}</p>`;
                 exDiv.append(content);
             });
 
-           
+
             // // appendBtn click
             // item1Btn.click(function () {
             //     // exDiv append method
