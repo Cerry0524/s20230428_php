@@ -19,25 +19,26 @@
         <div class="row">
             <div class="col">
                 <div class="d-grid gap-2">
-                    <button class="itemBtn btn btn-primary" type="button" id="item1Btn" data-stock-name="拿鐵">item1
-                        btn</button>
+                    <button class="itemBtn btn btn-primary" type="button" id="item1Btn" data-stock-name="拿鐵">
+                    </button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid gap-2">
-                    <button class="itemBtn btn btn-success" type="button" id="item2Btn" data-stock-name="花茶">item2
-                        btn</button>
+                    <button class="itemBtn btn btn-success" type="button" id="item2Btn" data-stock-name="花茶">
+                    </button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid gap-2">
-                    <button class="itemBtn btn btn-danger" type="button" id="item3Btn" data-stock-name="星冰樂">item3
-                        btn</button>
+                    <button class="itemBtn btn btn-danger" type="button" id="item3Btn" data-stock-name="星冰樂">
+                    </button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid gap-2">
-                    <button class="itemBtn btn btn-warning" type="button" id="item4Btn" data-stock-name="卡布奇諾">item4 btn</button>
+                    <button class="itemBtn btn btn-warning" type="button" id="item4Btn" data-stock-name="卡布奇諾">
+                    </button>
                 </div>
             </div>
         </div>
@@ -71,14 +72,9 @@
         <div class="row mt-5">
             <div class="col">
                 <hr>
-                ex div
-                <!-- before -->
+                購買明細資料
                 <div class="div p-5 border border-black" id="exDiv">
-                    <!-- prepend -->
-                    <p>old Lorem ipsum dolor sit amet.</p>
-                    <!-- append -->
                 </div>
-                <!-- after -->
             </div>
         </div>
 
@@ -91,10 +87,6 @@
 
     <script>
         $(document).ready(function () {
-            // const item1Btn = $('#item1Btn');
-            // const item2Btn = $('#item2Btn');
-            // const item3Btn = $('#item3Btn');
-            // const item4Btn = $('#item4Btn');
             const itemBtn = $('.itemBtn')
             const exDiv = $('#exDiv');
             const nameInput = $('#nameInput');
@@ -102,12 +94,27 @@
             const psInput = $('#psInput');
             const checkBtn = $('#checkBtn');
 
-
             let i = 0; //click 第幾個
 
-            console.log('exDiv', exDiv);
 
+             // 按鈕名稱
+             $.each(itemBtn, function (indexInArray, valueOfElement) {
+                let stockName = $(this).attr('data-stock-name');
+                $(valueOfElement).text(`${stockName}`);
+            });
 
+             // 選擇品項
+             itemBtn.click(function () {
+                // exDiv append method
+                let stockName = $(this).attr('data-stock-name');
+
+                nameInput.val(stockName);
+                numInput.val('1');
+                psInput.val('');
+
+            });
+
+            // 確定送出
             checkBtn.click(function () {
                 i++;
                 let name = nameInput.val();
@@ -118,16 +125,7 @@
                 exDiv.append(content);
             });
 
-            itemBtn.click(function () {
-                // exDiv append method
-                let stockName = $(this).attr('data-stock-name');
-
-                nameInput.val(stockName);
-                numInput.val('1');
-                psInput.val('');
-
-            });
-
+           
             // // appendBtn click
             // item1Btn.click(function () {
             //     // exDiv append method
@@ -139,27 +137,6 @@
 
             // });
 
-            // item2Btn.click(function () {
-            //     i++;
-            //     // exDiv append method
-            //     let content = `<p class="text-success">第${i}項 商品 item2</p>`;
-            //     exDiv.append(content);
-
-            // });
-            // item3Btn.click(function () {
-            //     i++;
-            //     // exDiv append method
-            //     let content = `<p class="text-danger">第${i}項 商品 item3</p>`;
-            //     exDiv.append(content);
-
-            // });
-            // item4Btn.click(function () {
-            //     i++;
-            //     // exDiv append method
-            //     let content = `<p class="text-warning">第${i}項 商品 item4</p>`;
-            //     exDiv.append(content);
-
-            // });
 
 
         });
