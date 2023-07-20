@@ -163,10 +163,17 @@
                     // 
 
                 });
-                content.slice(0, -1);
                 console.log('content', content);
-                resultSpan.text(content);
+                console.log('content typeof', typeof (content));
+                // js 字串減少
+                // substring 要丟到新變數
+                let newContent = content.substring(0, content.length - 1);
+                resultSpan.text(newContent);
             });
+
+            // slice 要丟到新變數
+            // let newSliceContent = content.slice(0, -1);
+            // console.log('newSliceContent', newSliceContent);
 
 
         });
