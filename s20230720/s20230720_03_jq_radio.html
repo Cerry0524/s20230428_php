@@ -73,15 +73,15 @@
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" name="myCheckbox[]" type="checkbox" value="餐具"
-                        id="flexCheckDefault" checked>
+                    <input class="form-check-input" name="myCheckbox[]" type="checkbox" value="餐具" id="flexCheckDefault"
+                        checked>
                     <label class="form-check-label" for="flexCheckDefault">
                         餐具
                     </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" name="myCheckbox[]" type="checkbox" value="辣椒粉"
-                        id="flexCheckDefault" >
+                        id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                         辣椒粉
                     </label>
@@ -133,11 +133,12 @@
                 // 同時全部取消
                 $('input[type="radio"]').prop('checked', false);
                 $('input[type="radio"]').removeAttr('checked');
-                // $('input[type="checkbox"]').prop('checked', false);
+                $('input[type="checkbox"]').prop('checked', false);
+                $('input[type="checkbox"]').removeAttr('checked');
             });
 
             myBtn.click(function () {
-                console.log('myBtn ok');S
+                console.log('myBtn ok');
                 // selector 方法一
                 let radio1Value = $('input[type="radio"][name="myRadio1"]:checked').val();
                 let radio2Value = $('input[type="radio"][name="myRadio2"]:checked').val();
@@ -148,15 +149,23 @@
 
                 // html checkbox
                 let allCheckboxs = $('input[type="checkbox"][name="myCheckbox[]"]:checked');
+                let allCheckboxsLength = allCheckboxs.length;
                 console.log('allCheckboxs', allCheckboxs);
+                console.log('allCheckboxsLength', allCheckboxsLength);
                 $.each(allCheckboxs, function (indexInArray, valueOfElement) {
                     console.log('indexInArray', indexInArray);
                     console.log('valueOfElement', valueOfElement);
                     let checkedValue = $(valueOfElement).val();
                     console.log('checkedValue', checkedValue);
+                    content = content + `${checkedValue}、`;
+
+                    // 0 1 2
+                    // 
 
                 });
-
+                content.slice(0, -1);
+                console.log('content', content);
+                resultSpan.text(content);
             });
 
 
