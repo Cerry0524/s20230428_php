@@ -95,7 +95,8 @@
                 <!-- vh100 height:100vh -->
                 <!-- viewpoint 整個頁面的高度 -->
 
-                <button type="button" id="myBtn" class="btn btn-success w-100 h-100">送出</button>
+                <button type="button" id="cancelBtn" class="mt-5 btn btn-danger w-100 h-25">取消</button>
+                <button type="button" id="myBtn" class="mt-5 btn btn-success w-100 h-25">送出</button>
             </div>
         </div>
     </div>
@@ -123,7 +124,16 @@
         // 原本的方法
         $(document).ready(function () {
             const myBtn = $('#myBtn');
-            const resultSpan = $('#resultSpan')
+            const cancelBtn = $('#cancelBtn');
+            const resultSpan = $('#resultSpan');
+
+            cancelBtn.click(function () {
+                console.log('cancelBtn ok');
+                // false 取消 true 全選
+                $('input[type="radio"]').prop('checked', false);
+                $('input[type="checkbox"]').prop('checked', false);
+            });
+
             myBtn.click(function () {
                 console.log('myBtn ok');
                 // selector 方法一
