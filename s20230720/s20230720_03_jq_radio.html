@@ -74,14 +74,14 @@
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" name="myCheckbox[]" type="checkbox" value="餐具"
-                        id="flexCheckDefault">
+                        id="flexCheckDefault" checked>
                     <label class="form-check-label" for="flexCheckDefault">
                         餐具
                     </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" name="myCheckbox[]" type="checkbox" value="辣椒粉"
-                        id="flexCheckDefault">
+                        id="flexCheckDefault" >
                     <label class="form-check-label" for="flexCheckDefault">
                         辣椒粉
                     </label>
@@ -130,12 +130,14 @@
             cancelBtn.click(function () {
                 console.log('cancelBtn ok');
                 // false 取消 true 全選
+                // 同時全部取消
                 $('input[type="radio"]').prop('checked', false);
-                $('input[type="checkbox"]').prop('checked', false);
+                $('input[type="radio"]').removeAttr('checked');
+                // $('input[type="checkbox"]').prop('checked', false);
             });
 
             myBtn.click(function () {
-                console.log('myBtn ok');
+                console.log('myBtn ok');S
                 // selector 方法一
                 let radio1Value = $('input[type="radio"][name="myRadio1"]:checked').val();
                 let radio2Value = $('input[type="radio"][name="myRadio2"]:checked').val();
