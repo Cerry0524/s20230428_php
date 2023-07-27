@@ -87,12 +87,12 @@
             <div class="col">
                 <div class="mb-3">
                     <label for="psInput" class="form-label">備註</label>
-                    <input id="psInput" type="text" class="form-control">
+                    <input type="text" class="form-control psInput">
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3">
-                    <label for="psInput" class="form-label">操作</label>
+                    <label class="form-label">操作</label>
                     <div class="d-grid gap-2">
                         <button class="btn btn-danger delBtnAll" type="button">
                             <i class="fa-solid fa-xmark"></i>&nbsp;&nbsp; 刪除</button>
@@ -174,13 +174,6 @@
                     return false;
                 }
 
-
-
-
-
-
-
-
                 let nowDelBtn = $(this);
                 // 去看一下html 就可以知道要幾次parent 之後console.log
                 let nowRow = nowDelBtn.parent().parent().parent().parent();
@@ -231,7 +224,7 @@
 
             // });
 
-            // 確定送出
+            // 確定新增
             checkBtn.click(function () {
                 // value
                 // console.log('stockNameAll first value', stockNameAll.first().val());
@@ -241,18 +234,59 @@
                     alert('請選擇商品');
                     return false;
                 }
+                // 抓到是舊的 只有一個 網頁載入 第一個
+                // $.each(stockNameAll, function (indexInArray, valueOfElement) {
+                //     console.log('indexInArray', indexInArray);
+                //     console.log('valueOfElement', valueOfElement);
+                // });
 
-                
+                // 我要的是當下使用者抓的最新
+                let newStockNameAll = $('.stockName')
+                $.each(newStockNameAll, function (indexInArray, valueOfElement) {
+                    // console.log('indexInArray', indexInArray);
+                    // console.log('valueOfElement', valueOfElement);
 
-                i++;
-                let name = nameInput.val();
-                let num = numInput.val();
-                let ps = psInput.val();
-                let suger = sugerInput.val();
-                let ice = iceInput.val();
+                    // 1.item-row
 
-                let content = `<p class="text-primary">第${i}項 商品 ${name} ${num}杯 ${suger} ${ice} ${ps}</p>`;
-                exDiv.append(content);
+                    // 2.find input 
+                    i++;
+                    // 1.item-row
+                    let closeRow = $(valueOfElement).parent().parent().parent();
+                    console.log('closeRow', closeRow);
+                    // 2.find input 
+                    let name = closeRow.find('.stockName').val();
+                    let num = closeRow.find('.numInput').val();
+                    let ps = closeRow.find('.psInput').val();
+                    let suger = closeRow.find('.sugerInput').val();
+                    let ice = closeRow.find('.iceInput').val();
+                    let content = `<p class="text-primary">第${i}項 商品 ${name} ${num}杯 ${suger} ${ice} ${ps}</p>`;
+                    exDiv.append(content);
+
+                    // let name = nameInput.val();
+                    // let num = numInput.val();
+                    // let ps = psInput.val();
+                    // let suger = sugerInput.val();
+                    // let ice = iceInput.val();
+
+                    // let name = $(valueOfElement).val();
+                    // console.log('name', name);
+                });
+
+                // each
+                // 顯示第1項商品資料
+                // 顯示第2項商品資料
+                // 顯示第 最後一項 項商品資料
+
+
+                // i++;
+                // let name = nameInput.val();
+                // let num = numInput.val();
+                // let ps = psInput.val();
+                // let suger = sugerInput.val();
+                // let ice = iceInput.val();
+
+                // let content = `<p class="text-primary">第${i}項 商品 ${name} ${num}杯 ${suger} ${ice} ${ps}</p>`;
+                // exDiv.append(content);
             });
 
 
