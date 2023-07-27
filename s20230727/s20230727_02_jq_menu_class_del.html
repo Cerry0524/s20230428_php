@@ -53,7 +53,7 @@
             <div class="col">
                 <div class="mb-3">
                     <label class="form-label">商品</label>
-                    <input type="text" class="form-control stockName" disabled>
+                    <input type="text" class="form-control stockName" value="" disabled>
                 </div>
             </div>
             <div class="col">
@@ -132,6 +132,7 @@
         $(document).ready(function () {
             const itemBtn = $('.itemBtn')
             const exDiv = $('#exDiv');
+            const stockNameAll = $('.stockName');
             const nameInput = $('.nameInput');
             const numInput = $('.numInput');
             const psInput = $('.psInput');
@@ -232,6 +233,17 @@
 
             // 確定送出
             checkBtn.click(function () {
+                // value
+                // console.log('stockNameAll first value', stockNameAll.first().val());
+                // value.length
+                // console.log('stockNameAll first value', stockNameAll.first().val().length);
+                if (stockNameAll.first().val().length < 1) {
+                    alert('請選擇商品');
+                    return false;
+                }
+
+                
+
                 i++;
                 let name = nameInput.val();
                 let num = numInput.val();
