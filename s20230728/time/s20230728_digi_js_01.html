@@ -55,6 +55,22 @@
             ck4.setAttribute('class', `mg${nk4}`);
             ck5.setAttribute('class', `mg${nk5}`);
             ck6.setAttribute('class', `mg${nk6}`);
+
+            let mgd = document.querySelectorAll('.mgd');
+            mgd[0].style.opacity = 1;
+            mgd[1].style.opacity = 1;
+            console.log('mgd', mgd);
+
+            // 第二個功能需求
+            // : 會閃 500 半秒閃一次
+
+            setTimeout(function () {
+                let mgd = document.querySelectorAll('.mgd');
+                mgd[0].style.opacity = 0;
+                mgd[1].style.opacity = 0;
+            }, 500)
+
+
         }
 
         timeFun();
@@ -62,7 +78,6 @@
         // 希望每一秒都去抓
         setInterval(timeFun, 1000)
         console.log('timeFun', timeFun);
-
 
 
     </script>
