@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <div class="container">
         <div class="mg1"></div>
@@ -16,7 +18,33 @@
         <div class="mgd"></div>
         <div class="mg5"></div>
         <div class="mg6"></div>
-
     </div>
+
+
+    <script>
+        // 1.抓本地端時間
+        const nt = new Date();
+        const nh = nt.getHours(); // 10
+        const nm = nt.getMinutes(); // 32
+        const ns = nt.getSeconds(); // 20
+
+        // 2.拆解六個數字
+        // 數學方式拆 同學也可以用 字串分割方法
+        const nk1 = Math.floor(nh / 10);
+        const nk2 = nh % 10;
+        const nk3 = Math.floor(nm / 10);
+        const nk4 = nm % 10;
+        const nk5 = Math.floor(ns / 10);
+        const nk6 = ns % 10;
+
+        console.log('nk1', nk1);
+        console.log('nk2', nk2);
+        console.log('nk3', nk3);
+        console.log('nk4', nk4);
+        console.log('nk5', nk5);
+        console.log('nk6', nk6);
+
+    </script>
 </body>
+
 </html>
