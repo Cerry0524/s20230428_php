@@ -22,35 +22,48 @@
 
 
     <script>
-        // 1.抓本地端時間
-        const nt = new Date();
-        const nh = nt.getHours(); // 10
-        const nm = nt.getMinutes(); // 32
-        const ns = nt.getSeconds(); // 20
+        // 目前困擾點
+        // 進頁面 只會讀取一次
 
-        // 2.拆解六個數字
-        // 數學方式拆 同學也可以用 字串分割方法
-        const nk1 = Math.floor(nh / 10);
-        const nk2 = nh % 10;
-        const nk3 = Math.floor(nm / 10);
-        const nk4 = nm % 10;
-        const nk5 = Math.floor(ns / 10);
-        const nk6 = ns % 10;
+        function timeFun() {
+            // 1.抓本地端時間
+            const nt = new Date();
+            const nh = nt.getHours(); // 10
+            const nm = nt.getMinutes(); // 32
+            const ns = nt.getSeconds(); // 20
 
-        // 綁定html div
-        const ck1 = document.getElementById('ck1');
-        const ck2 = document.getElementById('ck2');
-        const ck3 = document.getElementById('ck3');
-        const ck4 = document.getElementById('ck4');
-        const ck5 = document.getElementById('ck5');
-        const ck6 = document.getElementById('ck6');
+            // 2.拆解六個數字
+            // 數學方式拆 同學也可以用 字串分割方法
+            const nk1 = Math.floor(nh / 10);
+            const nk2 = nh % 10;
+            const nk3 = Math.floor(nm / 10);
+            const nk4 = nm % 10;
+            const nk5 = Math.floor(ns / 10);
+            const nk6 = ns % 10;
 
-        ck1.setAttribute('class', `mg${nk1}`);
-        ck2.setAttribute('class', `mg${nk2}`);
-        ck3.setAttribute('class', `mg${nk3}`);
-        ck4.setAttribute('class', `mg${nk4}`);
-        ck5.setAttribute('class', `mg${nk5}`);
-        ck6.setAttribute('class', `mg${nk6}`);
+            // 綁定html div
+            const ck1 = document.getElementById('ck1');
+            const ck2 = document.getElementById('ck2');
+            const ck3 = document.getElementById('ck3');
+            const ck4 = document.getElementById('ck4');
+            const ck5 = document.getElementById('ck5');
+            const ck6 = document.getElementById('ck6');
+
+            ck1.setAttribute('class', `mg${nk1}`);
+            ck2.setAttribute('class', `mg${nk2}`);
+            ck3.setAttribute('class', `mg${nk3}`);
+            ck4.setAttribute('class', `mg${nk4}`);
+            ck5.setAttribute('class', `mg${nk5}`);
+            ck6.setAttribute('class', `mg${nk6}`);
+        }
+
+        timeFun();
+        // 解法
+        // 希望每一秒都去抓
+        setInterval(timeFun, 1000)
+        console.log('timeFun', timeFun);
+
+
 
     </script>
 </body>
