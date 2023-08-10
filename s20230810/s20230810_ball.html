@@ -84,7 +84,7 @@
             const time = $('#time');
 
             const initScore = 0;
-            const initTime = 50;
+            const initTime = 35;
 
             let scoreNow = initScore;
             let timeNow = initTime;
@@ -124,6 +124,7 @@
                         startBtn.text('結束遊戲');
                         isGame = false;
                     }
+
                     // console.log(`hello 第 ${timeNow} 次`);
                     time.text(timeNow);
                 }, 1000);
@@ -132,8 +133,14 @@
 
             inBtn.click(function () {
                 console.log('inBtn ok');
-                scoreNow = scoreNow + 2;
+
+                if (timeNow > 30) {
+                    scoreNow = scoreNow + 2;
+                } else {
+                    scoreNow = scoreNow + 3;
+                }
                 score.text(scoreNow);
+
             });
 
 
