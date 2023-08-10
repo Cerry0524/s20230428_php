@@ -82,12 +82,18 @@
             const score = $('#score');
             const time = $('#time');
 
+
             let scoreNow = 0;
-            let timeNow = 10;
+            let timeNow = 3;
+            let isGame = true;
 
             inBtn.hide();
 
             startBtn.click(function () {
+                if (isGame == false) {
+                    return false;
+                }
+
                 $(this).hide();
                 inBtn.show();
 
@@ -95,10 +101,16 @@
                     timeNow--;
                     if (timeNow < 1) {
                         clearInterval(myIntervel);
+                        inBtn.hide();
+                        startBtn.show();
+                        startBtn.text('結束遊戲');
+                        isGame = false;
                     }
                     // console.log(`hello 第 ${timeNow} 次`);
                     time.text(timeNow);
                 }, 1000);
+
+
 
             });
 
