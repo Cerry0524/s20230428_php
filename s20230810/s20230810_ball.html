@@ -57,11 +57,11 @@
             歷史最高分數<span>55688</span>
         </h2>
         <h4>
-            <span id="score">100</span>
+            <span id="score"></span>
         </h4>
         <hr>
         <h4 class="time">
-            <span id="time">100</span>
+            <span id="time"></span>
         </h4>
     </div>
     <div class="container">
@@ -76,18 +76,36 @@
         // JQUERY 放在ready內
         // 官網 推薦 用更簡短的方式表達
         $(function () {
+
             const startBtn = $('#startBtn');
             const inBtn = $('#inBtn');
             const resetBtn = $('#resetBtn');
             const score = $('#score');
             const time = $('#time');
 
+            const initScore = 0;
+            const initTime = 50;
 
-            let scoreNow = 0;
-            let timeNow = 3;
+            let scoreNow = initScore;
+            let timeNow = initTime;
             let isGame = true;
 
+
+
             inBtn.hide();
+            score.text(scoreNow);
+            time.text(timeNow);
+
+
+            resetBtn.click(function () {
+                isGame = true;
+                scoreNow = initScore;
+                timeNow = initTime;
+                // startBtn.text('開始');
+                startBtn.text('重新開始');
+                score.text(scoreNow);
+                time.text(timeNow);
+            });
 
             startBtn.click(function () {
                 if (isGame == false) {
@@ -110,11 +128,10 @@
                     time.text(timeNow);
                 }, 1000);
 
-
-
             });
 
             inBtn.click(function () {
+                console.log('inBtn ok');
                 scoreNow = scoreNow + 2;
                 score.text(scoreNow);
             });
