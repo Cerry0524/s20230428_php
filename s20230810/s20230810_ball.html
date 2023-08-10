@@ -54,7 +54,7 @@
             分數
         </h3>
         <h2>
-            歷史最高分數<span>55688</span>
+            歷史最高分數<span id="scoreHighSpan"></span>
         </h2>
         <h4>
             <span id="score"></span>
@@ -82,15 +82,20 @@
             const resetBtn = $('#resetBtn');
             const score = $('#score');
             const time = $('#time');
+            const scoreHighSpan = $('#scoreHighSpan');
 
             const initScore = 0;
-            const initTime = 35;
+            const initTime = 3;
 
             let scoreNow = initScore;
             let timeNow = initTime;
             let isGame = true;
 
-
+            let scoreHighHistory = localStorage.getItem("scoreHigh");
+            console.log('scoreHighHistory', scoreHighHistory);
+            if (scoreHighHistory > 0) {
+                scoreHighSpan.text(scoreHighHistory);
+            }
 
             inBtn.hide();
             score.text(scoreNow);
@@ -123,6 +128,11 @@
                         startBtn.show();
                         startBtn.text('結束遊戲');
                         isGame = false;
+
+                        if (scoreNow > scoreHighHistory) {
+                            localStorage.setItem("scoreHigh", scoreNow);
+                            scoreHighSpan.text(scoreNow);
+                        }
                     }
 
                     // console.log(`hello 第 ${timeNow} 次`);
