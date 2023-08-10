@@ -57,7 +57,7 @@
             歷史最高分數<span>55688</span>
         </h2>
         <h4>
-            100
+            <span id="score">100</span>
         </h4>
         <hr>
         <h4 class="time">
@@ -79,11 +79,19 @@
             const startBtn = $('#startBtn');
             const inBtn = $('#inBtn');
             const resetBtn = $('#resetBtn');
+            const score = $('#score');
+            let scoreNow = 0;
 
             inBtn.hide();
-            startBtn.click(function(){
+
+            startBtn.click(function () {
                 $(this).hide();
                 inBtn.show();
+            });
+
+            inBtn.click(function () {
+                scoreNow = scoreNow + 2;
+                score.text(scoreNow);
             });
 
         });
