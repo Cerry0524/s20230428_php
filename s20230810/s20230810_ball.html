@@ -28,8 +28,8 @@
             color: red;
         }
 
-        .time{
-            color:blue
+        .time {
+            color: blue
         }
 
         .container {
@@ -65,10 +65,30 @@
         </h4>
     </div>
     <div class="container">
-        <button type="button">開始</button>
-        <!-- <button type="button">進球</button> -->
-        <button type="button">重置</button>
+        <button type="button" id="startBtn">開始</button>
+        <button type="button" id="inBtn">進球</button>
+        <button type="button" id="resetBtn">重置</button>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // JQUERY 放在ready內
+        // 官網 推薦 用更簡短的方式表達
+        $(function () {
+            const startBtn = $('#startBtn');
+            const inBtn = $('#inBtn');
+            const resetBtn = $('#resetBtn');
+
+            inBtn.hide();
+            startBtn.click(function(){
+                $(this).hide();
+                inBtn.show();
+            });
+
+        });
+    </script>
+
 </body>
 
 </html>
