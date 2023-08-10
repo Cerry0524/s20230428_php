@@ -61,7 +61,7 @@
         </h4>
         <hr>
         <h4 class="time">
-            60
+            <span id="time">100</span>
         </h4>
     </div>
     <div class="container">
@@ -80,13 +80,26 @@
             const inBtn = $('#inBtn');
             const resetBtn = $('#resetBtn');
             const score = $('#score');
+            const time = $('#time');
+
             let scoreNow = 0;
+            let timeNow = 10;
 
             inBtn.hide();
 
             startBtn.click(function () {
                 $(this).hide();
                 inBtn.show();
+
+                const myIntervel = setInterval(function () {
+                    timeNow--;
+                    if (timeNow < 1) {
+                        clearInterval(myIntervel);
+                    }
+                    // console.log(`hello 第 ${timeNow} 次`);
+                    time.text(timeNow);
+                }, 1000);
+
             });
 
             inBtn.click(function () {
@@ -94,7 +107,10 @@
                 score.text(scoreNow);
             });
 
+
+
         });
+        // jquery end
     </script>
 
 </body>
