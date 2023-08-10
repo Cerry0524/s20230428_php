@@ -83,6 +83,12 @@
             const score = $('#score');
             const time = $('#time');
             const scoreHighSpan = $('#scoreHighSpan');
+            resetBtn.attr('disabled', true);
+            // resetBtn.attr('disabled', 'true');
+            startBtn.click(function () {
+                // resetBtn.attr('disabled', 'false');
+                resetBtn.attr('disabled', false);
+            });
 
             const initScore = 0;
             const initTime = 60;
@@ -91,6 +97,7 @@
             let timeNow = initTime;
             let isGame = true;
 
+            // localStorage.setItem("scoreHigh", 10);
             let scoreHighHistory = localStorage.getItem("scoreHigh");
             console.log('scoreHighHistory', scoreHighHistory);
             if (scoreHighHistory > 0) {
