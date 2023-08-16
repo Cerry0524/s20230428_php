@@ -1,4 +1,7 @@
 <?php
+$myArr = [
+
+];
 
 function dd($data)
 {
