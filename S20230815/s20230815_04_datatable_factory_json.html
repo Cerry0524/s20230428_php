@@ -19,7 +19,7 @@
     <br><br>
 
     <table id="myTable" class="display">
-        <thead>
+        <thead style="display: none;">
             <tr>
                 <td>id</td>
                 <td>area</td>
@@ -51,8 +51,11 @@
             const myTbody = $('#myTbody');
             const myTable = $('#myTable');
             const myBtn = $('#myBtn');
+            const thead = $('thead');
+
             let content = '';
 
+            // thead.hide();
 
             myBtn.click(function () {
                 // ajax
@@ -78,6 +81,7 @@
                     `;
                         }
 
+                        thead.show();
                         myTbody.html(content);
                         myTable.DataTable();
 
