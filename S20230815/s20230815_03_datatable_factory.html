@@ -22,7 +22,7 @@
         </thead>
         <tbody id="myTbody">
             <!-- insert jquery data -->
-        <!-- foreach php .... -->
+            <!-- foreach php .... -->
         </tbody>
     </table>
 
@@ -33,30 +33,20 @@
 
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 
+    <script src="./js/factory.js"></script>
+
     <script>
         // JQUERY 放在ready內
         // 官網 推薦 用更簡短的方式表達
         $(function () {
-            
-
-            const myTbody = $('#myTbody');
-            let data = `<tr>
-                            <td>1</td>
-                            <td>amy</td>
-                            <td>0911-111-111</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>amy</td>
-                            <td>0911-111-111</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>amy</td>
-                            <td>0911-111-111</td>
-                        </tr>`;
-            myTbody.html(data);
-            $('#myTable').DataTable();
+            console.log('data', data);
+            console.log('data[0]', data[0]);
+            console.log('data[0]["id"]', data[0]["id"]);
+            console.log('data[0]["area"]', data[0]["area"]);
+            console.log('data[0]["name"]', data[0]["name"]);
+            console.log('data[0]["address"]', data[0]["address"]);
+            console.log('data[0]["url"]', data[0]["url"]);
+            // $('#myTable').DataTable();
 
         });
 
