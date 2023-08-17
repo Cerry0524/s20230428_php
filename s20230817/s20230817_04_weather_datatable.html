@@ -17,9 +17,9 @@
             <tr>
                 <th>id</th>
                 <th>name</th>
-                <th>最低溫度 0-12hr</th>
-                <th>最低溫度 12-24hr</th>
-                <th>最低溫度 24-36hr</th>
+                <th>最低 - 最高 溫度 0-12hr</th>
+                <th>最低 - 最高 溫度 12-24hr</th>
+                <th>最低 - 最高 溫度 24-36hr</th>
             </tr>
         </thead>
         <tbody id="myTbody">
@@ -72,17 +72,17 @@
                     data.forEach((value, key) => {
                         console.log(key);
                         console.log(value.locationName);
-                        let time12 = `${value.weatherElement[2].time[0].parameter.parameterName}`;
-                        let time24 = `${value.weatherElement[2].time[1].parameter.parameterName}`;;
-                        let time36 = `${value.weatherElement[2].time[2].parameter.parameterName}`;;
+                        let time12 = ` ${value.weatherElement[0].time[0].parameter.parameterName} => ${value.weatherElement[2].time[0].parameter.parameterName} - ${value.weatherElement[4].time[0].parameter.parameterName}`;
+                        let time24 = ` ${value.weatherElement[0].time[0].parameter.parameterName} => ${value.weatherElement[2].time[1].parameter.parameterName} - ${value.weatherElement[4].time[0].parameter.parameterName}`;;
+                        let time36 = ` ${value.weatherElement[0].time[0].parameter.parameterName} => ${value.weatherElement[2].time[2].parameter.parameterName} - ${value.weatherElement[4].time[0].parameter.parameterName}`;;
 
                         content = content + `
                             <tr>
                                 <td>${key + 1}</td>
                                 <td>${value.locationName}</td>
-                                <td>${time12}</td>
-                                <td>${time24}</td>
-                                <td>${time36}</td>
+                                <td>${time12} &deg;C</td>
+                                <td>${time24} &deg;C</td>
+                                <td>${time36} &deg;C</td>
                             </tr>
                         `;
                     });
