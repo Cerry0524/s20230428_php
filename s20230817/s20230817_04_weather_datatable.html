@@ -73,8 +73,8 @@
                         console.log(key);
                         console.log(value.locationName);
                         let time12 = ` ${value.weatherElement[0].time[0].parameter.parameterName} => ${value.weatherElement[2].time[0].parameter.parameterName} - ${value.weatherElement[4].time[0].parameter.parameterName}`;
-                        let time24 = ` ${value.weatherElement[0].time[0].parameter.parameterName} => ${value.weatherElement[2].time[1].parameter.parameterName} - ${value.weatherElement[4].time[0].parameter.parameterName}`;;
-                        let time36 = ` ${value.weatherElement[0].time[0].parameter.parameterName} => ${value.weatherElement[2].time[2].parameter.parameterName} - ${value.weatherElement[4].time[0].parameter.parameterName}`;;
+                        let time24 = ` ${value.weatherElement[0].time[1].parameter.parameterName} => ${value.weatherElement[2].time[1].parameter.parameterName} - ${value.weatherElement[4].time[0].parameter.parameterName}`;;
+                        let time36 = ` ${value.weatherElement[0].time[2].parameter.parameterName} => ${value.weatherElement[2].time[2].parameter.parameterName} - ${value.weatherElement[4].time[0].parameter.parameterName}`;;
 
                         content = content + `
                             <tr>
