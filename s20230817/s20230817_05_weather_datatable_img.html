@@ -14,6 +14,27 @@
 <body>
     <h3 class="text-center">氣象資料 36HR</h3>
 
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
+            </div>
+            <div class="col">
+                <button type="button" class="locationBtn btn btn-primary" id="" data-location="新北市">新北市</button>
+            </div>
+            <div class="col">
+                <button type="button" class="locationBtn btn btn-primary" id="" data-location="台中市">台中市</button>
+            </div>
+            <div class="col">
+                <button type="button" class="locationBtn btn btn-primary" id="" data-location="高雄市">高雄市</button>
+            </div>
+            <div class="col">
+                <button type="button" class="locationBtn btn btn-primary" id="all" data-location="all">ALL</button>
+            </div>
+        </div>
+    </div>
+    <hr>
 
     <div class="container-fluid mt-5 text-center" id="myContainer">
         <div class="row">
@@ -55,8 +76,32 @@
         // 官網 推薦 用更簡短的方式表達
         $(function () {
 
+            function getValue($locationName) {
+            }
+
             console.log('myKey', myKey);
             const myContainer = $('#myContainer');
+            // const all = $('#all');
+            // const newTaipei = $('#newTaipei');
+            const locationBtn = $('.locationBtn');
+
+            locationBtn.click(function () {
+                let dataLocation = $(this).attr('data-location');
+                console.log('dataLocation', dataLocation);
+            });
+
+
+
+
+            // newTaipei.click(function () {
+            //     let dataLocation = $(this).attr('data-location');
+            //     console.log('dataLocation', dataLocation);
+            // });
+
+            // all.click(function () {
+            //     let dataLocation = $(this).attr('data-location');
+            //     console.log('dataLocation', dataLocation);
+            // });
 
             // url 在ignore那 ../ignore/self.js
             $.ajax({
@@ -76,10 +121,11 @@
                     let content = '';
 
 
+
                     data.forEach((value, key) => {
                         let locationName = value.locationName;
                         if (locationName != '新北市') {
-                            return false; 
+                            return false;
                         }
                         console.log(key);
                         console.log(value.locationName);
