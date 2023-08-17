@@ -13,9 +13,9 @@
 
 <body>
     <h3 class="text-center">氣象資料 36HR</h3>
-    
 
-    <div class="container mt-5 text-center">
+
+    <div class="container-fluid mt-5 text-center" id="myContainer">
         <div class="row">
             <div class="col">
                 序號
@@ -33,26 +33,7 @@
                 2023-08-18 06:00:00
             </div>
         </div>
-        <div class="row mt-3">
-            <div class="col pt-4">
-                1
-            </div>
-            <div class="col pt-4">
-                台北
-            </div>
-            <div class="col">
-                20 - 30 &deg; C 
-                <img src="./day/1.svg" alt="晴天" title="晴天">
-            </div>
-            <div class="col">
-                20 - 30 &deg; C 
-                <img src="./day/1.svg" alt="晴天" title="晴天">
-            </div>
-            <div class="col">
-                20 - 30 &deg; C 
-                <img src="./day/1.svg" alt="晴天" title="晴天">
-            </div>
-        </div>
+
     </div>
 
 
@@ -76,8 +57,6 @@
 
             console.log('myKey', myKey);
             const myContainer = $('#myContainer');
-            const myTable = $('#myTable');
-            const myTbody = $('#myTbody');
 
             // url 在ignore那 ../ignore/self.js
             $.ajax({
@@ -98,23 +77,47 @@
 
 
                     data.forEach((value, key) => {
+                        let locationName = value.locationName;
+                        if (locationName != '新北市') {
+                            return false; 
+                        }
                         console.log(key);
                         console.log(value.locationName);
-                        let time12 = ` ${value.weatherElement[0].time[0].parameter.parameterName} => ${value.weatherElement[2].time[0].parameter.parameterName} - ${value.weatherElement[4].time[0].parameter.parameterName}`;
-                        let time24 = ` ${value.weatherElement[0].time[1].parameter.parameterName} => ${value.weatherElement[2].time[1].parameter.parameterName} - ${value.weatherElement[4].time[0].parameter.parameterName}`;;
-                        let time36 = ` ${value.weatherElement[0].time[2].parameter.parameterName} => ${value.weatherElement[2].time[2].parameter.parameterName} - ${value.weatherElement[4].time[0].parameter.parameterName}`;;
+                        let time12 = `${value.weatherElement[2].time[0].parameter.parameterName} - ${value.weatherElement[4].time[0].parameter.parameterName}`;
+                        let time24 = `${value.weatherElement[2].time[1].parameter.parameterName} - ${value.weatherElement[4].time[1].parameter.parameterName}`;
+                        let time36 = `${value.weatherElement[2].time[2].parameter.parameterName} - ${value.weatherElement[4].time[2].parameter.parameterName}`;
+                        let img12 = `${value.weatherElement[0].time[0].parameter.parameterValue}`;
+                        let img24 = `${value.weatherElement[0].time[1].parameter.parameterValue}`;
+                        let img36 = `${value.weatherElement[0].time[2].parameter.parameterValue}`;
+                        let text12 = `${value.weatherElement[0].time[0].parameter.parameterName}`;
+                        let text24 = `${value.weatherElement[0].time[0].parameter.parameterName}`;
+                        let text36 = `${value.weatherElement[0].time[0].parameter.parameterName}`;
 
-                        content = content + `
-                            <tr>
-                                <td>${key + 1}</td>
-                                <td>${value.locationName}</td>
-                                <td>${time12} &deg;C</td>
-                                <td>${time24} &deg;C</td>
-                                <td>${time36} &deg;C</td>
-                            </tr>
+                        content = content + `  
+                            <hr>                          
+                            <div class="row mt-3">
+                                <div class="col pt-4">
+                                    ${key + 1}
+                                </div>
+                                <div class="col pt-4">
+                                    ${value.locationName}
+                                </div>
+                                <div class="col">
+                                    ${time12} 
+                                    <img src="./day/${img12}.svg" alt="${text12}" title="${text12}">
+                                </div>
+                                <div class="col">
+                                    ${time24} 
+                                    <img src="./day/${img24}.svg" alt="${text24}" title="${text24}">
+                                </div>
+                                <div class="col">
+                                    ${time36} 
+                                    <img src="./day/${img36}.svg" alt="${text36}" title="${text36}">
+                                </div>
+                            </div>                            
                         `;
                     });
-                    // myTbody.append(content);
+                    myContainer.append(content);
                     // myTable.DataTable({
                     //     language: {
                     //         url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/ja.json',
